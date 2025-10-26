@@ -22,13 +22,12 @@ const Carousel = () => {
           >
             <div className="col-lg-7 col-md-12 col-12">
               <h2 data-aos="fade-up">
-                Global Leader In Telecom VAS, Mobile Learning, Entertainment &
-                Sports
+                Beyond Limits
               </h2>
               <blockquote data-aos="fade-up" data-aos-delay="100">
                 <p>
-                  We are a global leader in Telcom VAS, offer Services across
-                  Educational Content, Entertainment Content, Games and sports
+                   We design prosthetic solutions that don't just restore function—they ignite possibility.
+                  With fresh thinking and technical excellence, we're here to ensure your abilities always outshine your disabilities.
                 </p>
               </blockquote>
               <div className="d-flex align-items-center">

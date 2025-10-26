@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import InnerHeaderBanner from "../components/InnerHeaderBanner";
 import InnerHeader from "../components/InnerHeader";
 import Footer from "../components/Footer";
@@ -70,16 +70,16 @@ const Contact = () => {
       message: ""})
   };
 
-  const finishSubmit = () => {
+  const finishSubmit = useCallback(() => {
     console.log(inputFields);   
    //inputRef.current.value = '';
-  };
+  }, [inputFields]);
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submitting) {
       finishSubmit();
       }
-  }, [errors]);
+  }, [errors, submitting, finishSubmit]);
 
   return (
     <>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 
 const Facts = () => {
   return (
@@ -10,23 +11,23 @@ const Facts = () => {
             <div className="col-lg-12 text-center">
               <div className="section-header">
                 <h2 className="text-white">Our Footprints</h2>
-                <p>Delivering service excellence to over 43 million Happy Customers across geography… </p>
+                <p>We have delivered excellence service to over 100+ Happy Customers across geography… </p>
               </div>
               <div className="row counters">
                 <div className="col-lg-4 col-6 text-center">
-                  <span  className="purecounter">17</span>
-                  <h3> COUNTRIES </h3>
-                  <p> Global Presence </p>
+                  <span data-purecounter-start="0" data-purecounter-end="8" className="purecounter">8</span>
+                  <h3> States</h3>
+                  <p> Nationwide Presence </p>
                 </div>
                 <div className="col-lg-4 col-6 text-center">
-                  <span className="purecounter">82</span>
-                  <h3> CUSTOMERS </h3>
-                  <p>Across the Globe</p>
+                  <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-end-symbol="+" className="purecounter">100+</span>
+                  <h3> Customers </h3>
+                  <p>Nationwide</p>
                 </div>
                 <div className="col-lg-4 col-6 text-center">
-                  <span  className="purecounter">43</span>
-                  <h3> MILLION USERS</h3>
-                  <p>Monthly Users (Active Base) </p>
+                  <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-end-symbol="M+" className="purecounter">20+</span>
+                  <h3>Years</h3>
+                  <p>Years of experience </p>
                 </div>
               </div>
             </div>

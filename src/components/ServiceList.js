@@ -25,7 +25,7 @@ const ServiceList = () => {
                 </div>
                 <div>
                   <h4 className="title">
-                    <Link to="/ervices" className="stretched-link">
+                    <Link to="/services" className="stretched-link">
                       Educational Content{" "}
                     </Link>
                   </h4>

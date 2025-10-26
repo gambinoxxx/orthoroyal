@@ -1057,7 +1057,7 @@ position: relative;
 # Call To Action Section
 --------------------------------------------------------------*/
 .facts {
- background: linear-gradient(rgba(21 91 213 / 80%), rgba(21 91 213 / 100%)), url("./img/cta-bg1.jpg") center center;
+ background: linear-gradient(rgba(21 91 213 / 80%), rgba(21 91 213 / 100%)), url("./img/orthobox.jpeg") center center;
   background-size: cover;
   padding: 100px 0; 
 }
@@ -1644,6 +1644,68 @@ background: var(--color-white);}
     transform: scale(1.12);
   }
 }
+
+/* Custom Testimonial Card Styles */
+.testimonial-card {
+  margin: 0 15px 40px 15px;
+  padding: 30px;
+  border: 1px solid #eef0ef;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease-in-out;
+  height: calc(100% - 40px); /* Adjust for bottom margin */
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-card .stars {
+  color: #ffc107;
+  margin-bottom: 15px;
+}
+
+.testimonial-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-card p {
+  color: var(--dark-3);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+.testimonial-card .author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.testimonial-card .author img {
+  border-radius: 50%;
+}
+
+.testimonial-card .author h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.testimonial-card .author a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.react-multi-carousel-dot--active button {
+  background: var(--color-primary) !important;
+  }
 
 /*--------------------------------------------------------------
 # Portfolio Section
