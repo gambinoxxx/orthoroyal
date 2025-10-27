@@ -6,7 +6,6 @@ import heroImg3 from "../img/header/hero-image-3.jpg";
 import heroImg4 from "../img/header/hero-image-4.jpg";
 import { Link } from "react-router-dom";
 import '../../node_modules/react-modal-video/css/modal-video.css'
-import ModalVideo from 'react-modal-video'
 
 const Carousel = () => {
   const [isOpen, setOpen] = useState(false)
@@ -26,7 +25,7 @@ const Carousel = () => {
               </h2>
               <blockquote data-aos="fade-up" data-aos-delay="100">
                 <p>
-                   We design prosthetic solutions that don't just restore function—they ignite possibility.
+                   We design prosthetic solutions that don't just restore function but they ignite possibility.
                   With fresh thinking and technical excellence, we're here to ensure your abilities always outshine your disabilities.
                 </p>
               </blockquote>
@@ -34,10 +33,10 @@ const Carousel = () => {
                 <Link to="/about" className="btn-get-started">
                   Read More
                 </Link>
-                <ModalVideo channel='youtube' autoplay='true' isOpen={isOpen} videoId="yqWX86uT5jM" onClose={() => setOpen(false)} />
+                {/* <ModalVideo channel='youtube' autoplay='true' isOpen={isOpen} videoId="yqWX86uT5jM" onClose={() => setOpen(false)} />
               <span className="btn-watch-video d-flex align-items-center pointer" onClick={()=> setOpen(true)}> <i className="bi bi-play-circle-fill"></i>
                 <span>Watch Intro</span>
-              </span>
+              </span> */}
               </div>
             </div>
             <div className="col-lg-5 col-md-12 col-12">

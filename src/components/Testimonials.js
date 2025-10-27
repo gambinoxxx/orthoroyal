@@ -3,6 +3,10 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import StarHalfRoundedIcon from "@mui/icons-material/StarHalfRounded";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import test1 from "../img/test1.jpg";
+import test2 from "../img/test2.jpg";
+import test3 from "../img/test3.jpg";
+import test4 from "../img/test4.jpg";
 
 const Card = ({ star, title, imgSrc, description, name }) => {
   return (
@@ -38,36 +42,36 @@ const Testimonials = () => {
         <div>
           <Card
             star={<StarHalfRoundedIcon />}
-            title="Modern look & trending design"
-            imgSrc="/testimonials/1.png"
-            description="Symbiotic's team delivered a modern and trending design that exceeded our expectations. Their attention to detail and creative approach resulted in a visually stunning product."
-            name="Denny Hilguston"            
+            title="Micheal's Industrial Accident Recovery"
+            imgSrc={test1}
+            description="I lost my right arm in a industrial accident at the factory where I worked. For two years, I struggled with basic daily tasks and thought my independence was gone forever. A colleague referred me to Orthoroyal, and from the first consultation, I felt hope. The team designed a prosthetic that feels like part of me. Today, I can work, cook, and even play with my children again. Thank you Orthoroyal for giving me back my life."
+            name="Micheal okafor"            
           />
         </div>
         <div>
           <Card
-            title="Layout and organized layers"
-            imgSrc="/testimonials/2.png"
-            description="The layout and organization of the layers were impeccable. It made the final product easy to manage and scale for future updates. A truly professional job."
-            name="Vera Duncan"            
+            title="Sarah's Diabetes Success Story"
+            imgSrc={test3}
+            description="As a diabetic patient, I faced the amputation of my left foot after complications. I was terrified of being confined to a wheelchair. My doctor recommended Orthoroyal, and the experience transformed my outlook. The young, brilliant prosthetist took time to understand my lifestyle and created a solution that lets me walk comfortably. I'm now back to visiting my grandchildren and managing my small shop. Orthoroyal truly cares about their patients."
+            name="Grace ogunwale"            
           />
         </div>
         <div>
           <Card
             star={<StarRoundedIcon />}
-            title="Design Quality & performance"
-            imgSrc="/testimonials/3.png"
-            description="We were impressed by the high quality of the design and the outstanding performance. The application is fast, responsive, and looks fantastic on all devices."
-            name="Naseem Khan"            
+            title="David's Congenital Condition Victory"
+            imgSrc={test2}
+            description="I was born with a limb difference and had tried several prosthetic solutions that never felt right. At 25, I visited Orthoroyal hoping for one last attempt. Their innovative approach and modern technology gave me my first prosthetic that actually feels natural. The rehabilitation team taught me how to move with confidence, and now I've started the small business I always dreamed of. Orthoroyal didn't just give me a limb—they gave me confidence."
+            name="David Adeyemi"            
           />
         </div>
         <div>
           <Card
             star={<StarHalfRoundedIcon />}
-            title="Layout and organized layers"
-            imgSrc="/testimonials/4.png"
-            description="Working with Symbiotic was a great experience. The organized layers and clean code in the final delivery made our team's work much more efficient."
-            name="Lina Hart"            
+            title="From Adebola, Auto Accident Survivor"
+            imgSrc={test4}
+            description="After a motorcycle accident claimed my leg, I thought my teaching career was over. The depression was overwhelming until my sister found Orthoroyal. The compassionate team walked with me through every step—from fitting to rehabilitation. Their advanced prosthetic component allows me to stand and move around my classroom all day. I'm back doing what I love, and my students never see me as different. Orthoroyal restored my purpose."
+            name="Adebola olajide"            
             
           />
         </div>

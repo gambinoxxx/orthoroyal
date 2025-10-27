@@ -16,8 +16,8 @@ const Footer = () => {
                   <img src={footerLogo} alt="" title="" />
                 </Link>
                 <p>
-                  We are a global leader in Telcom VAS, offer Services across
-                  Educational Content, Entertainment Content, Games and sports
+                  We are a global leader in prosthetic solutions, offering services for
+                  Consultations, Device Maintenance, Component Solutions and Rehabilitation Support.
                 </p>
                 <div className="social-links d-flex  mt-3">
                   <Link to="/" className="twitter">
@@ -63,37 +63,33 @@ const Footer = () => {
                 <ul>
                   <li>
                     <i className="bi bi-dash"></i>
-                    <HashLink smooth to ="/services/#Educational-content">
-                      Educational Content
-                    </HashLink>
+                    <HashLink smooth to ="/services/#Educational-content">Consultation</HashLink>
                   </li>
                   <li>
                     <i className="bi bi-dash"></i>
                     <HashLink smooth to ="/services/#Entertainment-content">
-                      Entertainment Content
+                      Device Maintenance
                     </HashLink>
                   </li>
                   <li>
                     <i className="bi bi-dash"></i>
-                    <HashLink smooth to="/services/#Games">Games</HashLink>
+                    <HashLink smooth to="/services/#Games">Rehabilitation Support</HashLink>
                   </li>
                   <li>
                     <i className="bi bi-dash"></i>
-                    <HashLink smooth to ="/services/#Sports">Sports</HashLink>
+                    <HashLink smooth to ="/services/#Sports">Component Solutions</HashLink>
                   </li>
                 </ul>
               </div>
               <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                 <h4>Contact Us</h4>
                 <address>
-                 
-                  #1,Sundaram Illam, <br /> Chellamal Street, <br /> Shenoy
-                  Nagar, Chennai - 600 030. <br />
+                  #9,Ibiteye St, <br /> Off Adeshiyan Street, <br /> Odi-olowo, Lagos - 100001. <br />
                   <br />
-                  <strong>Phone:</strong> +91 - 44 - 4208 2102 <br />
+                  <strong>Phone:</strong> +234 09083204947 <br />
                   <strong>Email: </strong>
-                  <a href="mailto:info@symbioticinfo.com">                  
-                     info@symbioticinfo.com
+                  <a href="mailto:info@orthoroyal.com">                  
+                     info@orthoroyal.com
                   </a> 
                   <br />
                 </address>
@@ -104,14 +100,8 @@ const Footer = () => {
         <div className="footer-legal">
           <div className="container">
             <div className="copyright">
-              <span id="copyright">
-                <script>
-                  document.getElementById('copyright').appendChild(document.createTextNode(new
-                  Date().getFullYear()) )
-                </script>
-              </span>
-              &copy;  Copyright
-              <span> Symbiotic Infotech Pvt. Ltd </span>. All Rights Reserved
+              &copy; Copyright {new Date().getFullYear()}
+              <span> Orthoroyal Prosthetics Ltd </span>. All Rights Reserved
             </div>
           </div>
         </div>

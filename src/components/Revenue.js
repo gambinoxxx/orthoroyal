@@ -11,10 +11,10 @@ const Revenue = () => {
           <div className="container" data-aos="fade-up" data-aos-delay="300">
             <div className="row">
               <div className="col-md-7">
-                <h4>Drive revenue and optimise your Business</h4>
-                <p>We have fortified our services with almost two decades of being a VAS major, with our unified experience, coupled with latest product line that interests consumers with their diversified needs of meaningful and engaging content.</p>
-                <p> Our abreast technology trends and unabating innovation has always enhanced the business impact for our clients resulting in happy faces seeing the revenue graph.</p>
-                <p> We are always focused on unfolding new revenue streams for our operators with our innovative service line and as well meeting clients specific requirements. </p>
+                <h4>The Future of Prosthetics in Africa - Redefined</h4>
+                <p>While Africa presents unique challenges in prosthetic care,
+                  we see boundless opportunity. Orthoroyal combines global expertise with local understanding to bridge accessibility gaps, bringing world-class prosthetic solutions to communities across the continent. We're not just navigating challenges—we're transforming them into possibilities for mobility and independence.</p>
+                
                 <Link to="/about" className="btn-get-started">Read More</Link>
               </div>
               <div className="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
