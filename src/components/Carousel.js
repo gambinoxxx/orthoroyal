@@ -472,13 +472,24 @@ const CarouselC = () => {
             padding: 48px 32px 40px;
             border-right: none;
             border-bottom: 1px solid rgba(255,255,255,0.06);
+            align-items: center;
+            text-align: center;
           }
-          .c-main { padding: 32px 0; }
-          .c-title { font-size: 3.5rem; }
-          .c-desc { max-width: 100%; }
+          .c-main {
+            padding: 32px 0;
+            align-items: center;
+          }
+          .c-eyebrow { justify-content: center; }
+          .c-desc { max-width: 100%; text-align: center; }
+          .c-bottom {
+            width: 100%;
+            justify-items: center;
+          }
+          .c-stat { text-align: center; }
           .c-right {
             min-height: 55vw;
             max-height: 480px;
+            margin-top: 20px;
           }
           .c-dots { right: 12px; }
           .c-header-row { display: none; }
@@ -490,6 +501,7 @@ const CarouselC = () => {
           .c-right {
             min-height: 70vw;
             max-height: 360px;
+            margin-top: 16px;
           }
           .c-iso { display: none; }
           .c-dots { display: none; }
