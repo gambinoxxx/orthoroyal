@@ -1240,7 +1240,7 @@ section {
 
 /* Ghost watermark */
 #ob-footer::before {
-  content: 'ORTHOBOX';
+  content: 'ORTHOROYAL';
   position: absolute;
   bottom: 60px;
   left: 50%;
