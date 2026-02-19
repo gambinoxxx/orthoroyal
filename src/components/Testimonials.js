@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import React from "react"; // Added React import for safety
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import StarHalfRoundedIcon from "@mui/icons-material/StarHalfRounded";
 import Carousel from "react-multi-carousel";
@@ -72,7 +72,6 @@ const Testimonials = () => {
             imgSrc={test4}
             description="After a motorcycle accident claimed my leg, I thought my teaching career was over. The depression was overwhelming until my sister found Orthoroyal. The compassionate team walked with me through every step—from fitting to rehabilitation. Their advanced prosthetic component allows me to stand and move around my classroom all day. I'm back doing what I love, and my students never see me as different. Orthoroyal restored my purpose."
             name="Adebola olajide"            
-            
           />
         </div>
       </Carousel>
