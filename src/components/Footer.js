@@ -34,16 +34,16 @@ const Footer = () => {
             </p>
 
             <div className="ob-footer-socials">
-              <a href="/" aria-label="Twitter">
+              <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noreferrer">
                 <i className="bi bi-twitter-x"></i>
               </a>
-              <a href="/" aria-label="Facebook">
+              <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
                 <i className="bi bi-facebook"></i>
               </a>
               <a href="https://www.linkedin.com/company/symbiotic-infotech-pvt-ltd/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a href="/" aria-label="Instagram">
+              <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
                 <i className="bi bi-instagram"></i>
               </a>
             </div>
@@ -157,11 +157,11 @@ const Footer = () => {
         </div>
 
         <div className="ob-footer-bottom-links">
-          <a href="#">Privacy Policy</a>
+          <button className="ob-footer-bottom-btn" type="button">Privacy Policy</button>
           <span className="ob-footer-bottom-sep"></span>
-          <a href="#">Terms of Use</a>
+          <button className="ob-footer-bottom-btn" type="button">Terms of Use</button>
           <span className="ob-footer-bottom-sep"></span>
-          <a href="#">Sitemap</a>
+          <button className="ob-footer-bottom-btn" type="button">Sitemap</button>
         </div>
 
         <div className="ob-footer-made">
