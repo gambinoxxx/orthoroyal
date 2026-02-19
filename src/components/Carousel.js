@@ -1,11 +1,12 @@
 /**
- * DESIGN A — "Corporate Authority"
- * Dark navy left panel split-screen layout. Ultra-professional, editorial weight.
- * Monospace accents, sharp geometry, white carousel on dark.
+ * DESIGN B — "Surgical Precision"
+ * Pure white luxury clinical. Generous negative space, sharp geometry,
+ * asymmetric layout with overlapping elements. Refined and authoritative.
  */
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
+import shapeImg from "../img/img-wave2.png";
 import heroImg1 from "../img/header/hero-image-1.jpg";
 import heroImg2 from "../img/header/hero-image-2.jpg";
 import heroImg3 from "../img/header/hero-image-3.jpg";
@@ -18,7 +19,7 @@ const slides = [
   { img: heroImg4, label: "Empowering Lives" },
 ];
 
-const CarouselA = () => {
+const CarouselB = () => {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const intervalRef = useRef(null);
@@ -30,7 +31,7 @@ const CarouselA = () => {
       if (index !== null) setCurrent(index);
       else setCurrent((prev) => dir === "next" ? (prev + 1) % slides.length : (prev - 1 + slides.length) % slides.length);
       setAnimating(false);
-    }, 500);
+    }, 600);
   }, [animating]);
 
   const stopAuto = useCallback(() => { if (intervalRef.current) clearInterval(intervalRef.current); }, []);
@@ -46,222 +47,269 @@ const CarouselA = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap');
 
-        #hero-a {
-          font-family: 'IBM Plex Sans', sans-serif;
+        #hero-b {
+          font-family: 'Outfit', sans-serif;
           min-height: 100vh;
-          background: #0d1117;
-          display: flex;
-          align-items: stretch;
-          position: relative;
-          overflow: hidden;
-        }
-
-        /* Subtle grid texture overlay */
-        #hero-a::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background-image:
-            linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-          background-size: 60px 60px;
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        .hero-a-container {
-          width: 100%;
-          min-height: 100vh;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          position: relative;
-          z-index: 1;
-        }
-
-        /* LEFT PANEL */
-        .hero-a-left {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 80px 60px 80px 80px;
-          position: relative;
-          border-right: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .hero-a-left::after {
-          content: '';
-          position: absolute;
-          top: 0; right: 0; bottom: 0;
-          width: 1px;
-          background: linear-gradient(to bottom, transparent, rgba(11,12,237,0.6), transparent);
-        }
-
-        .a-tag {
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.25em;
-          text-transform: uppercase;
-          color: #0b0ced;
-          margin-bottom: 36px;
+          background: #f8f7f4;
           display: flex;
           align-items: center;
-          gap: 12px;
-          animation: aFadeUp 0.7s ease 0.1s both;
+          position: relative;
+          overflow: hidden;
+          padding: 0;
         }
 
-        .a-tag::before {
-          content: '';
-          width: 32px;
+        /* Large geometric circle BG */
+        .b-circle-bg {
+          position: absolute;
+          top: -200px;
+          right: -200px;
+          width: 700px;
+          height: 700px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(11,12,237,0.04) 0%, transparent 65%);
+          pointer-events: none;
+        }
+
+        .b-circle-stroke {
+          position: absolute;
+          bottom: -150px;
+          left: -100px;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          border: 1px solid rgba(11,12,237,0.06);
+          pointer-events: none;
+        }
+
+        /* Vertical rule */
+        .b-vr {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 1px;
+          height: 100%;
+          background: linear-gradient(to bottom, transparent 0%, rgba(11,12,237,0.08) 30%, rgba(11,12,237,0.08) 70%, transparent 100%);
+          pointer-events: none;
+        }
+
+        .b-wave {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          opacity: 0.12;
+          pointer-events: none;
+        }
+
+        .b-inner {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          padding: 100px 0 80px;
+        }
+
+        .b-row {
+          display: flex;
+          align-items: center;
+          gap: 0;
+        }
+
+        /* LEFT CONTENT */
+        .b-content {
+          flex: 0 0 55%;
+          padding-right: 64px;
+          animation: bFade 0.9s ease 0.1s both;
+        }
+
+        @keyframes bFade {
+          from { opacity: 0; transform: translateX(-24px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+
+        .b-sup {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin-bottom: 40px;
+          animation: bFade 0.7s ease 0.15s both;
+        }
+
+        .b-sup-line {
+          width: 48px;
           height: 1px;
           background: #0b0ced;
         }
 
-        .a-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(3.5rem, 5vw, 6rem);
-          font-weight: 700;
-          line-height: 0.95;
-          color: #ffffff;
-          margin: 0 0 32px;
-          animation: aFadeUp 0.8s ease 0.2s both;
-        }
-
-        .a-title-accent {
+        .b-sup-text {
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
           color: #0b0ced;
+        }
+
+        .b-title {
+          font-family: 'Libre Baskerville', serif;
+          font-size: clamp(3.2rem, 4.8vw, 5.8rem);
+          font-weight: 700;
+          line-height: 1.0;
+          color: #111;
+          margin: 0 0 36px;
+          animation: bFade 0.8s ease 0.25s both;
+        }
+
+        .b-title em {
           font-style: italic;
+          color: #0b0ced;
           position: relative;
-          display: block;
         }
 
-        .a-divider {
-          width: 48px;
-          height: 2px;
-          background: linear-gradient(90deg, #0b0ced, transparent);
-          margin-bottom: 28px;
-          animation: aFadeUp 0.6s ease 0.3s both;
+        /* Underline decoration */
+        .b-title em::after {
+          content: '';
+          position: absolute;
+          bottom: 2px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: #0b0ced;
+          opacity: 0.15;
+          border-radius: 2px;
         }
 
-        .a-desc {
-          font-size: 0.95rem;
+        .b-desc {
+          font-size: 1rem;
           font-weight: 300;
-          color: rgba(255,255,255,0.55);
+          color: #6b7280;
           line-height: 1.9;
-          max-width: 420px;
-          margin-bottom: 44px;
-          animation: aFadeUp 0.8s ease 0.35s both;
+          max-width: 440px;
+          margin: 0 0 44px;
+          border-left: 2px solid rgba(11,12,237,0.15);
+          padding-left: 20px;
+          animation: bFade 0.8s ease 0.4s both;
         }
 
-        .a-btn {
+        .b-cta-row {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+          flex-wrap: wrap;
+          animation: bFade 0.8s ease 0.55s both;
+        }
+
+        .b-btn {
           display: inline-flex;
           align-items: center;
-          gap: 14px;
-          padding: 14px 32px;
+          gap: 12px;
+          padding: 16px 36px;
           background: #0b0ced;
           color: #fff;
-          font-family: 'IBM Plex Sans', sans-serif;
-          font-size: 0.82rem;
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.85rem;
           font-weight: 500;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          border-radius: 2px;
+          letter-spacing: 0.05em;
+          border-radius: 0;
           text-decoration: none;
           transition: all 0.3s ease;
-          width: fit-content;
           position: relative;
           overflow: hidden;
-          animation: aFadeUp 0.8s ease 0.5s both;
+          clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
         }
 
-        .a-btn::after {
+        .b-btn::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: rgba(255,255,255,0.12);
-          transform: translateX(-100%);
-          transition: transform 0.4s ease;
+          background: #0a0bc5;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.35s ease;
         }
 
-        .a-btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(11,12,237,0.4); }
-        .a-btn:hover::after { transform: translateX(0); }
+        .b-btn:hover::before { transform: scaleX(1); }
+        .b-btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(11,12,237,0.3); }
+        .b-btn span { position: relative; z-index: 1; }
+        .b-btn svg { position: relative; z-index: 1; transition: transform 0.3s; }
+        .b-btn:hover svg { transform: translateX(4px); }
 
-        .a-btn svg { transition: transform 0.3s; }
-        .a-btn:hover svg { transform: translateX(5px); }
-
-        .a-stats {
+        .b-link {
+          font-size: 0.82rem;
+          color: #111;
+          text-decoration: none;
           display: flex;
-          gap: 0;
-          margin-top: 52px;
-          border-top: 1px solid rgba(255,255,255,0.08);
-          padding-top: 32px;
-          animation: aFadeUp 0.8s ease 0.65s both;
+          align-items: center;
+          gap: 8px;
+          opacity: 0.5;
+          transition: opacity 0.25s;
+          font-weight: 400;
         }
 
-        .a-stat {
-          flex: 1;
-          padding-right: 24px;
-          border-right: 1px solid rgba(255,255,255,0.08);
-          margin-right: 24px;
+        .b-link:hover { opacity: 1; }
+
+        .b-stats {
+          display: flex;
+          gap: 36px;
+          margin-top: 56px;
+          padding-top: 36px;
+          border-top: 1px solid rgba(0,0,0,0.08);
+          animation: bFade 0.8s ease 0.7s both;
+          flex-wrap: wrap;
         }
 
-        .a-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-
-        .a-stat-val {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 2.2rem;
+        .b-stat-val {
+          font-family: 'Libre Baskerville', serif;
+          font-size: 2rem;
           font-weight: 700;
-          color: #fff;
+          color: #111;
           line-height: 1;
           margin-bottom: 4px;
         }
 
-        .a-stat-lbl {
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 0.65rem;
+        .b-stat-lbl {
+          font-size: 0.72rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.35);
+          color: #9ca3af;
+          font-weight: 400;
         }
 
-        /* RIGHT PANEL */
-        .hero-a-right {
+        /* RIGHT CAROUSEL */
+        .b-visual {
+          flex: 0 0 45%;
           position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 60px 60px 60px 48px;
-          background: #080c12;
+          animation: bFadeR 1s ease 0.3s both;
         }
 
-        .a-carousel-wrap {
-          position: relative;
-          width: 100%;
-          max-width: 420px;
+        @keyframes bFadeR {
+          from { opacity: 0; transform: translateX(24px); }
+          to { opacity: 1; transform: translateX(0); }
         }
 
-        .a-carousel-frame {
+        /* Background block behind image */
+        .b-bg-block {
+          position: absolute;
+          top: 24px;
+          left: 24px;
+          right: -12px;
+          bottom: -12px;
+          background: rgba(11,12,237,0.06);
+          border-radius: 4px;
+          z-index: 0;
+        }
+
+        .b-frame {
           position: relative;
           border-radius: 4px;
           overflow: hidden;
           aspect-ratio: 3/4;
-          background: #111;
+          max-height: 580px;
+          z-index: 1;
+          box-shadow: 0 24px 60px rgba(0,0,0,0.14);
         }
 
-        /* Corner accents */
-        .a-corner {
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          z-index: 10;
-        }
-        .a-corner.tl { top: -6px; left: -6px; border-top: 2px solid #0b0ced; border-left: 2px solid #0b0ced; }
-        .a-corner.tr { top: -6px; right: -6px; border-top: 2px solid #0b0ced; border-right: 2px solid #0b0ced; }
-        .a-corner.bl { bottom: -6px; left: -6px; border-bottom: 2px solid #0b0ced; border-left: 2px solid #0b0ced; }
-        .a-corner.br { bottom: -6px; right: -6px; border-bottom: 2px solid #0b0ced; border-right: 2px solid #0b0ced; }
-
-        .a-slide {
+        .b-slide {
           position: absolute;
           inset: 0;
           opacity: 0;
@@ -269,275 +317,239 @@ const CarouselA = () => {
           z-index: 1;
         }
 
-        .a-slide.active { opacity: 1; z-index: 2; }
+        .b-slide.active { opacity: 1; z-index: 2; }
 
-        .a-slide img {
+        .b-slide img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
-          filter: brightness(0.88) contrast(1.05);
         }
 
-        .a-slide::after {
+        .b-slide::after {
           content: '';
           position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(8,12,18,0.7) 0%, transparent 50%);
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
           z-index: 1;
         }
 
-        .a-slide-label {
+        .b-slide-lbl {
           position: absolute;
-          bottom: 20px;
-          left: 20px;
-          right: 20px;
+          bottom: 24px;
+          left: 24px;
           z-index: 3;
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 0.7rem;
+          color: rgba(255,255,255,0.8);
+          font-size: 0.72rem;
+          font-weight: 500;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.7);
           opacity: 0;
           transform: translateY(8px);
-          transition: all 0.5s ease 0.3s;
+          transition: all 0.5s ease 0.35s;
         }
 
-        .a-slide.active .a-slide-label { opacity: 1; transform: translateY(0); }
+        .b-slide.active .b-slide-lbl { opacity: 1; transform: translateY(0); }
 
-        /* Progress bar */
-        .a-progress {
-          display: flex;
-          gap: 6px;
-          margin-top: 20px;
-        }
-
-        .a-progress-bar {
-          flex: 1;
-          height: 2px;
-          background: rgba(255,255,255,0.12);
-          border-radius: 1px;
-          cursor: pointer;
-          overflow: hidden;
-          transition: background 0.3s;
-        }
-
-        .a-progress-bar.active { background: rgba(11,12,237,0.3); }
-
-        .a-progress-fill {
-          height: 100%;
-          background: #0b0ced;
-          transform: scaleX(0);
-          transform-origin: left;
-          border-radius: 1px;
-        }
-
-        .a-progress-bar.active .a-progress-fill {
-          animation: fillBar 5s linear forwards;
-        }
-
-        @keyframes fillBar { to { transform: scaleX(1); } }
-
-        /* Nav */
-        .a-nav {
+        /* Floating ISO badge */
+        .b-badge {
           position: absolute;
-          bottom: 50px;
-          right: -20px;
+          bottom: 36px;
+          left: -32px;
+          background: #fff;
+          padding: 16px 20px;
+          border-radius: 4px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+          z-index: 10;
           display: flex;
           flex-direction: column;
-          gap: 8px;
-          z-index: 10;
+          gap: 4px;
+          animation: bFloat 5s ease-in-out infinite;
         }
 
-        .a-nav-btn {
-          width: 38px;
-          height: 38px;
-          border: 1px solid rgba(255,255,255,0.15);
-          background: rgba(8,12,18,0.9);
-          color: rgba(255,255,255,0.6);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.25s;
-          font-size: 1rem;
-          backdrop-filter: blur(4px);
+        @keyframes bFloat {
+          0%,100%{transform:translateY(0);}
+          50%{transform:translateY(-8px);}
         }
 
-        .a-nav-btn:hover { background: #0b0ced; color: #fff; border-color: #0b0ced; }
-
-        /* Counter */
-        .a-counter {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 0.65rem;
-          letter-spacing: 0.15em;
-          color: rgba(255,255,255,0.35);
-          z-index: 10;
+        .b-badge-val {
+          font-family: 'Libre Baskerville', serif;
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #0b0ced;
+          line-height: 1;
         }
 
-        /* Certified badge */
-        .a-badge {
-          position: absolute;
-          top: 30px;
-          left: -20px;
-          background: #0d1117;
-          border: 1px solid rgba(11,12,237,0.4);
-          padding: 12px 16px;
-          z-index: 10;
-        }
-
-        .a-badge-inner {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .a-badge-dot {
-          width: 8px;
-          height: 8px;
-          background: #0b0ced;
-          border-radius: 50%;
-          box-shadow: 0 0 8px #0b0ced;
-          animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-
-        .a-badge-text {
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 0.6rem;
-          letter-spacing: 0.15em;
+        .b-badge-txt {
+          font-size: 0.62rem;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.6);
-          line-height: 1.5;
+          color: #9ca3af;
         }
 
-        @keyframes aFadeUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
+        /* Counter top-right */
+        .b-counter {
+          position: absolute;
+          top: -16px;
+          right: 16px;
+          background: #0b0ced;
+          color: #fff;
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.75rem;
+          font-weight: 500;
+          padding: 6px 14px;
+          letter-spacing: 0.1em;
+          z-index: 10;
+          border-radius: 2px;
+        }
+
+        /* Dots */
+        .b-dots {
+          position: absolute;
+          right: -28px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          z-index: 10;
+        }
+
+        .b-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: rgba(0,0,0,0.15);
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          transition: all 0.3s;
+        }
+
+        .b-dot.active {
+          height: 20px;
+          border-radius: 3px;
+          background: #0b0ced;
         }
 
         /* RESPONSIVE */
         @media (max-width: 991px) {
-          .hero-a-container {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto;
-          }
-          .hero-a-left {
-            padding: 60px 40px 40px;
-            text-align: center;
-            align-items: center;
-            border-right: none;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-          }
-          .hero-a-left::after { display: none; }
-          .a-tag { justify-content: center; }
-          .a-desc { max-width: 100%; }
-          .hero-a-right {
-            padding: 48px 40px 60px;
-          }
-          .a-carousel-wrap { max-width: 360px; }
-          .a-badge { display: none; }
-          .a-nav { right: -16px; bottom: 40px; }
-          .a-stats { justify-content: center; }
+          .b-row { flex-direction: column; gap: 48px; }
+          .b-content { flex: none; width: 100%; padding-right: 0; text-align: center; align-items: center; display: flex; flex-direction: column; }
+          .b-sup { justify-content: center; }
+          .b-desc { border-left: none; border-top: 2px solid rgba(11,12,237,0.15); padding-left: 0; padding-top: 16px; max-width: 100%; }
+          .b-cta-row { justify-content: center; }
+          .b-stats { justify-content: center; }
+          .b-visual { flex: none; width: 100%; display: flex; justify-content: center; }
+          .b-visual > div { width: 100%; max-width: 400px; }
+          .b-bg-block { display: none; }
+          .b-badge { left: 0; }
+          .b-dots { right: -20px; }
         }
 
         @media (max-width: 576px) {
-          .hero-a-left { padding: 48px 24px 32px; }
-          .a-title { font-size: 3rem; }
-          .hero-a-right { padding: 32px 24px 48px; }
-          .a-carousel-wrap { max-width: 100%; }
-          .a-nav { display: none; }
-          .a-stats { gap: 0; }
-          .a-stat { padding-right: 16px; margin-right: 16px; }
-          .a-stat-val { font-size: 1.6rem; }
+          .b-inner { padding: 60px 0 60px; }
+          .b-title { font-size: 2.8rem; }
+          .b-frame { max-height: 400px; }
+          .b-badge { display: none; }
+          .b-dots { display: none; }
+          .b-counter { top: -14px; right: 8px; }
+          .b-stats { gap: 20px; }
         }
       `}</style>
 
-      <section id="hero-a">
-        <div className="hero-a-container">
-          {/* LEFT */}
-          <div className="hero-a-left">
-            <span className="a-tag">Orthobox Prosthetics</span>
-            <h1 className="a-title">
-              Beyond<br />
-              <span className="a-title-accent">Limits</span>
-            </h1>
-            <div className="a-divider" />
-            <p className="a-desc">
-              We design prosthetic solutions that don't just restore function —
-              they ignite possibility. With fresh thinking and technical excellence,
-              we ensure your abilities always outshine your disabilities.
-            </p>
-            <Link to="/about" className="a-btn">
-              <span>Discover Our Story</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </Link>
-            <div className="a-stats">
-              <div className="a-stat">
-                <div className="a-stat-val">15+</div>
-                <div className="a-stat-lbl">Years</div>
-              </div>
-              <div className="a-stat">
-                <div className="a-stat-val">2k+</div>
-                <div className="a-stat-lbl">Lives Changed</div>
-              </div>
-              <div className="a-stat">
-                <div className="a-stat-val">98%</div>
-                <div className="a-stat-lbl">Satisfaction</div>
-              </div>
-            </div>
-          </div>
+      <section id="hero-b">
+        <div className="b-circle-bg" />
+        <div className="b-circle-stroke" />
+        <div className="b-vr" />
+        <img className="b-wave" src={shapeImg} alt="" aria-hidden="true" />
 
-          {/* RIGHT */}
-          <div className="hero-a-right">
-            <div className="a-carousel-wrap">
-              {/* Certified badge */}
-              <div className="a-badge">
-                <div className="a-badge-inner">
-                  <div className="a-badge-dot" />
-                  <div className="a-badge-text">ISO Certified<br/>Medical Grade</div>
+        <div className="container b-inner">
+          <div className="b-row">
+            {/* LEFT */}
+            <div className="b-content">
+              <div className="b-sup">
+                <span className="b-sup-line" />
+                <span className="b-sup-text">Orthobox Prosthetics</span>
+              </div>
+
+              <h1 className="b-title">
+                Beyond<br />
+                <em>Limits</em>
+              </h1>
+
+              <p className="b-desc">
+                We design prosthetic solutions that don't just restore function —
+                they ignite possibility. With fresh thinking and technical excellence,
+                we ensure your abilities always outshine your disabilities.
+              </p>
+
+              <div className="b-cta-row">
+                <Link to="/about" className="b-btn">
+                  <span>Discover Our Story</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </Link>
+                <a href="#services" className="b-link">
+                  Our Services
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M7 17l10-10M7 7h10v10"/>
+                  </svg>
+                </a>
+              </div>
+
+              <div className="b-stats">
+                <div>
+                  <div className="b-stat-val">15+</div>
+                  <div className="b-stat-lbl">Years Experience</div>
+                </div>
+                <div>
+                  <div className="b-stat-val">2k+</div>
+                  <div className="b-stat-lbl">Lives Changed</div>
+                </div>
+                <div>
+                  <div className="b-stat-val">98%</div>
+                  <div className="b-stat-lbl">Satisfaction Rate</div>
                 </div>
               </div>
+            </div>
 
-              {/* Corner accents */}
-              <div className="a-corner tl" />
-              <div className="a-corner tr" />
-              <div className="a-corner bl" />
-              <div className="a-corner br" />
+            {/* RIGHT */}
+            <div className="b-visual">
+              <div style={{ position: 'relative', width: '100%' }}>
+                <div className="b-bg-block" />
+                <div className="b-counter">{String(current + 1).padStart(2,'0')} / 04</div>
 
-              {/* Counter */}
-              <div className="a-counter">{String(current + 1).padStart(2,'0')} / {String(slides.length).padStart(2,'0')}</div>
+                <div className="b-frame">
+                  {slides.map((s, i) => (
+                    <div key={i} className={`b-slide${i === current ? " active" : ""}`}>
+                      <img src={s.img} alt={s.label} />
+                      <span className="b-slide-lbl">{s.label}</span>
+                    </div>
+                  ))}
+                </div>
 
-              <div className="a-carousel-frame">
-                {slides.map((s, i) => (
-                  <div key={i} className={`a-slide${i === current ? " active" : ""}`}>
-                    <img src={s.img} alt={s.label} />
-                    <span className="a-slide-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
+                {/* Side dots */}
+                <div className="b-dots">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`b-dot${i === current ? " active" : ""}`}
+                      onClick={() => handleDotClick(i)}
+                      aria-label={`Slide ${i + 1}`}
+                    />
+                  ))}
+                </div>
 
-              <div className="a-progress">
-                {slides.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`a-progress-bar${i === current ? " active" : ""}`}
-                    onClick={() => handleDotClick(i)}
-                  >
-                    <div className="a-progress-fill" />
-                  </div>
-                ))}
-              </div>
-
-              <div className="a-nav">
-                <button className="a-nav-btn" onClick={() => { stopAuto(); goTo("prev"); }} aria-label="Previous">&#8593;</button>
-                <button className="a-nav-btn" onClick={() => { stopAuto(); goTo("next"); }} aria-label="Next">&#8595;</button>
+                {/* Badge */}
+                <div className="b-badge">
+                  <div className="b-badge-val">ISO</div>
+                  <div className="b-badge-txt">Certified<br/>Medical Grade</div>
+                </div>
               </div>
             </div>
           </div>
@@ -547,4 +559,4 @@ const CarouselA = () => {
   );
 };
 
-export default CarouselA;
+export default CarouselB;
