@@ -464,7 +464,7 @@ const CarouselB = () => {
         <div className="b-circle-bg" />
         <div className="b-circle-stroke" />
         <div className="b-vr" />
-        <img className="b-wave" src={shapeImg} alt="" aria-hidden="true" />
+
 
         <div className="container b-inner">
           <div className="b-row">
@@ -559,4 +559,5 @@ const CarouselB = () => {
 };
 
 export default CarouselB;
+
 
