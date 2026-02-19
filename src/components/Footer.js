@@ -34,9 +34,6 @@ const Footer = () => {
             </p>
 
             <div className="ob-footer-socials">
-              <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noreferrer">
-                <i className="bi bi-twitter-x"></i>
-              </a>
               <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
                 <i className="bi bi-facebook"></i>
               </a>
@@ -175,3 +172,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
