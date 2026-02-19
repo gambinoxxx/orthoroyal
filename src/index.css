@@ -1240,7 +1240,7 @@ section {
 
 /* Ghost watermark */
 #ob-footer::before {
-  content: 'ORTHOROYAL';
+  content: 'ORTHOBOX';
   position: absolute;
   bottom: 60px;
   left: 50%;
@@ -1654,4 +1654,392 @@ section {
     gap: 12px;
   }
   .ob-footer-bottom-links { flex-wrap: wrap; gap: 14px; }
+}
+
+/*--------------------------------------------------------------
+# Revenue / Mission Section
+# Scoped to #ob-revenue and .ob-revenue-* prefixes
+--------------------------------------------------------------*/
+
+#ob-revenue {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+  padding: 120px 0;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Ghost geo watermark */
+.ob-revenue-geo {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 900;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(11, 12, 237, 0.05);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.04em;
+  z-index: 0;
+}
+
+/* ── INNER LAYOUT ── */
+.ob-revenue-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════
+   LEFT CONTENT
+══════════════════════════════════════ */
+
+/* Eyebrow */
+.ob-revenue-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0b0ced;
+  margin-bottom: 24px;
+}
+
+.ob-revenue-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0b0ced;
+  box-shadow: 0 0 8px rgba(11, 12, 237, 0.6);
+  animation: obDotPulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Heading */
+.ob-revenue-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0b0e16;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.ob-revenue-heading em {
+  font-style: italic;
+  color: #0b0ced;
+}
+
+/* Body text */
+.ob-revenue-body {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: #5a6175;
+  line-height: 1.85;
+  margin-bottom: 16px;
+  max-width: 480px;
+}
+
+.ob-revenue-body--accent {
+  font-weight: 500;
+  color: #1a1f2e;
+  padding-left: 16px;
+  border-left: 2px solid #0b0ced;
+  margin-bottom: 36px;
+}
+
+/* Stats row */
+.ob-revenue-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.ob-revenue-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ob-revenue-stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b0e16;
+  line-height: 1;
+}
+
+.ob-revenue-stat-num em {
+  font-style: normal;
+  color: #0b0ced;
+  font-size: 1.2rem;
+}
+
+.ob-revenue-stat-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9aa0b0;
+}
+
+.ob-revenue-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: #e2e5ec;
+  flex-shrink: 0;
+}
+
+/* CTA Button */
+.ob-revenue-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #0b0e16;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid #0b0e16;
+}
+
+.ob-revenue-cta:hover {
+  background: #0b0ced;
+  border-color: #0b0ced;
+  color: #fff;
+  gap: 16px;
+  box-shadow: 0 8px 28px rgba(11, 12, 237, 0.35);
+}
+
+.ob-revenue-cta-arrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.ob-revenue-cta:hover .ob-revenue-cta-arrow {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ══════════════════════════════════════
+   RIGHT VISUAL
+══════════════════════════════════════ */
+.ob-revenue-visual {
+  position: relative;
+  padding: 20px 20px 20px 20px;
+}
+
+/* Offset shadow block */
+.ob-revenue-shadow-block {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: -12px;
+  bottom: -12px;
+  background: rgba(11, 12, 237, 0.06);
+  border-radius: 16px;
+  z-index: 0;
+}
+
+/* Image wrapper */
+.ob-revenue-img-wrap {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 24px 60px rgba(11, 12, 237, 0.1),
+    0 40px 80px rgba(0, 0, 0, 0.08);
+}
+
+.ob-revenue-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ob-revenue-img-wrap:hover .ob-revenue-img {
+  transform: scale(1.03);
+}
+
+/* Corner brackets */
+.ob-revenue-bracket {
+  position: absolute;
+  z-index: 2;
+}
+
+.ob-revenue-bracket--tl {
+  top: 6px;
+  left: 6px;
+}
+
+.ob-revenue-bracket--br {
+  bottom: 6px;
+  right: 6px;
+}
+
+/* Floating ISO badge */
+.ob-revenue-badge {
+  position: absolute;
+  top: -16px;
+  right: 24px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid rgba(11, 12, 237, 0.15);
+  border-radius: 30px;
+  padding: 8px 16px 8px 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ob-revenue-badge-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0b0ced;
+  box-shadow: 0 0 0 0 rgba(11, 12, 237, 0.4);
+  animation: obBadgePulse 2s ease-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes obBadgePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(11, 12, 237, 0.4); }
+  70%  { box-shadow: 0 0 0 8px rgba(11, 12, 237, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(11, 12, 237, 0); }
+}
+
+.ob-revenue-badge-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0b0e16;
+}
+
+/* Floating stat card */
+.ob-revenue-float-card {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  z-index: 3;
+  background: #0b0e16;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 16px 40px rgba(11, 14, 22, 0.25);
+  min-width: 180px;
+}
+
+.ob-revenue-float-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(11, 12, 237, 0.2);
+  border: 1px solid rgba(11, 12, 237, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0b0ced;
+}
+
+.ob-revenue-float-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.ob-revenue-float-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .ob-revenue-inner {
+    padding: 0 36px;
+    gap: 56px;
+  }
+}
+
+@media (max-width: 900px) {
+  #ob-revenue { padding: 80px 0; }
+
+  .ob-revenue-inner {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    padding: 0 28px;
+  }
+
+  .ob-revenue-heading { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .ob-revenue-body { max-width: 100%; }
+
+  .ob-revenue-visual {
+    padding: 24px 24px 40px 24px;
+  }
+
+  .ob-revenue-float-card {
+    bottom: -10px;
+    left: 10px;
+  }
+}
+
+@media (max-width: 580px) {
+  #ob-revenue { padding: 64px 0; }
+
+  .ob-revenue-inner { padding: 0 20px; }
+
+  .ob-revenue-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .ob-revenue-stat-divider { display: none; }
+
+  .ob-revenue-float-card { display: none; }
+
+  .ob-revenue-badge {
+    top: -12px;
+    right: 12px;
+  }
 }
