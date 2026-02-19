@@ -6,7 +6,6 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import shapeImg from "../img/img-wave2.png";
 import heroImg1 from "../img/header/hero-image-1.jpg";
 import heroImg2 from "../img/header/hero-image-2.jpg";
 import heroImg3 from "../img/header/hero-image-3.jpg";
@@ -560,3 +559,4 @@ const CarouselB = () => {
 };
 
 export default CarouselB;
+
