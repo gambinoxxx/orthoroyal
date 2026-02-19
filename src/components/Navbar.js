@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 const Navbar = () => {
   const location = useLocation()
   const { pathname } = location
-  const splitLocation = pathname.split("/")
+  const splitLocation = pathname.split("/")//ki
 
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -435,3 +435,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+
