@@ -1,7 +1,7 @@
 /**
- * DESIGN B — "Surgical Precision"
- * Pure white luxury clinical. Generous negative space, sharp geometry,
- * asymmetric layout with overlapping elements. Refined and authoritative.
+ * DESIGN C — "Editorial Depth"
+ * Deep charcoal/slate background. Full-bleed image right column.
+ * Magazine-inspired typography, large counter numerals, sophisticated motion.
  */
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
@@ -18,7 +18,7 @@ const slides = [
   { img: heroImg4, label: "Empowering Lives" },
 ];
 
-const CarouselB = () => {
+const CarouselC = () => {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const intervalRef = useRef(null);
@@ -46,369 +46,397 @@ const CarouselB = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Manrope:wght@300;400;500;600&display=swap');
 
-        #hero-b {
-          font-family: 'Outfit', sans-serif;
+        #hero-c {
+          font-family: 'Manrope', sans-serif;
           min-height: 100vh;
-          background: #f8f7f4;
-          display: flex;
-          align-items: center;
+          background: #181c24;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           position: relative;
           overflow: hidden;
-          padding: 0;
         }
 
-        /* Large geometric circle BG */
-        .b-circle-bg {
-          position: absolute;
-          top: -200px;
-          right: -200px;
-          width: 700px;
-          height: 700px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(11,12,237,0.04) 0%, transparent 65%);
-          pointer-events: none;
-        }
-
-        .b-circle-stroke {
-          position: absolute;
-          bottom: -150px;
-          left: -100px;
-          width: 500px;
-          height: 500px;
-          border-radius: 50%;
-          border: 1px solid rgba(11,12,237,0.06);
-          pointer-events: none;
-        }
-
-        /* Vertical rule */
-        .b-vr {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          width: 1px;
-          height: 100%;
-          background: linear-gradient(to bottom, transparent 0%, rgba(11,12,237,0.08) 30%, rgba(11,12,237,0.08) 70%, transparent 100%);
-          pointer-events: none;
-        }
-
-        .b-wave {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          opacity: 0.12;
-          pointer-events: none;
-        }
-
-        .b-inner {
+        /* LEFT SIDE */
+        .c-left {
           position: relative;
           z-index: 2;
-          width: 100%;
-          padding: 100px 0 80px;
-        }
-
-        .b-row {
           display: flex;
-          align-items: center;
-          gap: 0;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 60px 56px 56px 72px;
+          background: #181c24;
+          border-right: 1px solid rgba(255,255,255,0.06);
         }
 
-        /* LEFT CONTENT */
-        .b-content {
-          flex: 0 0 55%;
-          padding-right: 64px;
-          animation: bFade 0.9s ease 0.1s both;
-        }
-
-        @keyframes bFade {
-          from { opacity: 0; transform: translateX(-24px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-
-        .b-sup {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          margin-bottom: 40px;
-          animation: bFade 0.7s ease 0.15s both;
-        }
-
-        .b-sup-line {
-          width: 48px;
-          height: 1px;
-          background: #0b0ced;
-        }
-
-        .b-sup-text {
-          font-size: 0.72rem;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #0b0ced;
-        }
-
-        .b-title {
-          font-family: 'Libre Baskerville', serif;
-          font-size: clamp(3.2rem, 4.8vw, 5.8rem);
-          font-weight: 700;
-          line-height: 1.0;
-          color: #111;
-          margin: 0 0 36px;
-          animation: bFade 0.8s ease 0.25s both;
-        }
-
-        .b-title em {
-          font-style: italic;
-          color: #0b0ced;
-          position: relative;
-        }
-
-        /* Underline decoration */
-        .b-title em::after {
-          content: '';
-          position: absolute;
-          bottom: 2px;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          background: #0b0ced;
-          opacity: 0.15;
-          border-radius: 2px;
-        }
-
-        .b-desc {
-          font-size: 1rem;
-          font-weight: 300;
-          color: #6b7280;
-          line-height: 1.9;
-          max-width: 440px;
-          margin: 0 0 44px;
-          border-left: 2px solid rgba(11,12,237,0.15);
-          padding-left: 20px;
-          animation: bFade 0.8s ease 0.4s both;
-        }
-
-        .b-cta-row {
-          display: flex;
-          align-items: center;
-          gap: 28px;
-          flex-wrap: wrap;
-          animation: bFade 0.8s ease 0.55s both;
-        }
-
-        .b-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          padding: 16px 36px;
-          background: #0b0ced;
-          color: #fff;
-          font-family: 'Outfit', sans-serif;
-          font-size: 0.85rem;
-          font-weight: 500;
-          letter-spacing: 0.05em;
-          border-radius: 0;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          position: relative;
-          overflow: hidden;
-          clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-        }
-
-        .b-btn::before {
+        /* Subtle noise texture via repeating-gradient */
+        .c-left::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: #0a0bc5;
-          transform: scaleX(0);
-          transform-origin: right;
-          transition: transform 0.35s ease;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+          pointer-events: none;
+          z-index: 0;
         }
 
-        .b-btn:hover::before { transform: scaleX(1); }
-        .b-btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(11,12,237,0.3); }
-        .b-btn span { position: relative; z-index: 1; }
-        .b-btn svg { position: relative; z-index: 1; transition: transform 0.3s; }
-        .b-btn:hover svg { transform: translateX(4px); }
+        .c-header-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          position: relative;
+          z-index: 1;
+          animation: cFade 0.6s ease both;
+        }
 
-        .b-link {
-          font-size: 0.82rem;
-          color: #111;
-          text-decoration: none;
+        @keyframes cFade {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .c-logo-area {
           display: flex;
           align-items: center;
-          gap: 8px;
-          opacity: 0.5;
-          transition: opacity 0.25s;
-          font-weight: 400;
+          gap: 10px;
         }
 
-        .b-link:hover { opacity: 1; }
-
-        .b-stats {
+        .c-logo-mark {
+          width: 32px;
+          height: 32px;
+          background: #0b0ced;
+          border-radius: 6px;
           display: flex;
-          gap: 36px;
-          margin-top: 56px;
-          padding-top: 36px;
-          border-top: 1px solid rgba(0,0,0,0.08);
-          animation: bFade 0.8s ease 0.7s both;
-          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
         }
 
-        .b-stat-val {
-          font-family: 'Libre Baskerville', serif;
+        .c-logo-mark svg { color: #fff; }
+
+        .c-brand {
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+        }
+
+        .c-year {
+          font-size: 0.72rem;
+          font-weight: 300;
+          letter-spacing: 0.08em;
+          color: rgba(255,255,255,0.25);
+        }
+
+        /* MAIN CONTENT */
+        .c-main {
+          position: relative;
+          z-index: 1;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 40px 0;
+        }
+
+        .c-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 28px;
+          animation: cFade 0.7s ease 0.15s both;
+        }
+
+        .c-eyebrow-dot {
+          width: 6px;
+          height: 6px;
+          background: #0b0ced;
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(11,12,237,0.6);
+        }
+
+        .c-eyebrow-text {
+          font-size: 0.7rem;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.4);
+        }
+
+        .c-title {
+          font-family: 'Fraunces', serif;
+          font-size: clamp(3.5rem, 5vw, 6.5rem);
+          font-weight: 900;
+          line-height: 0.92;
+          color: #fff;
+          margin: 0 0 36px;
+          animation: cFade 0.8s ease 0.25s both;
+        }
+
+        .c-title-blue {
+          color: #0b0ced;
+          font-style: italic;
+          display: block;
+          position: relative;
+        }
+
+        /* Ghost text decoration */
+        .c-ghost {
+          position: absolute;
+          top: -8px;
+          left: -2px;
+          font-family: 'Fraunces', serif;
+          font-size: clamp(3.5rem, 5vw, 6.5rem);
+          font-weight: 900;
+          font-style: italic;
+          color: transparent;
+          -webkit-text-stroke: 1px rgba(11,12,237,0.15);
+          transform: translate(4px, 4px);
+          pointer-events: none;
+          user-select: none;
+          white-space: nowrap;
+        }
+
+        .c-desc {
+          font-size: 0.9rem;
+          font-weight: 300;
+          color: rgba(255,255,255,0.45);
+          line-height: 1.95;
+          max-width: 380px;
+          margin-bottom: 40px;
+          animation: cFade 0.8s ease 0.4s both;
+        }
+
+        .c-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          padding: 15px 32px;
+          background: #0b0ced;
+          color: #fff;
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.82rem;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          border-radius: 50px;
+          text-decoration: none;
+          width: fit-content;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 28px rgba(11,12,237,0.35);
+          animation: cFade 0.8s ease 0.55s both;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .c-btn::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(255,255,255,0.12);
+          border-radius: inherit;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+
+        .c-btn:hover::before { transform: scaleX(1); }
+        .c-btn:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 16px 40px rgba(11,12,237,0.5); }
+        .c-btn svg { transition: transform 0.3s; position: relative; z-index: 1; }
+        .c-btn:hover svg { transform: translateX(4px); }
+        .c-btn span { position: relative; z-index: 1; }
+
+        /* BOTTOM ROW: stats */
+        .c-bottom {
+          position: relative;
+          z-index: 1;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border-top: 1px solid rgba(255,255,255,0.07);
+          padding-top: 28px;
+          animation: cFade 0.8s ease 0.7s both;
+        }
+
+        .c-stat {
+          padding-right: 20px;
+        }
+
+        .c-stat:not(:last-child) {
+          border-right: 1px solid rgba(255,255,255,0.07);
+          margin-right: 20px;
+        }
+
+        .c-stat-val {
+          font-family: 'Fraunces', serif;
           font-size: 2rem;
           font-weight: 700;
-          color: #111;
+          color: #fff;
           line-height: 1;
           margin-bottom: 4px;
         }
 
-        .b-stat-lbl {
-          font-size: 0.72rem;
+        .c-stat-lbl {
+          font-size: 0.65rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #9ca3af;
+          color: rgba(255,255,255,0.3);
           font-weight: 400;
         }
 
-        /* RIGHT CAROUSEL */
-        .b-visual {
-          flex: 0 0 45%;
+        /* RIGHT SIDE: Full bleed image */
+        .c-right {
           position: relative;
-          animation: bFadeR 1s ease 0.3s both;
-        }
-
-        @keyframes bFadeR {
-          from { opacity: 0; transform: translateX(24px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Background block behind image */
-        .b-bg-block {
-          position: absolute;
-          top: 24px;
-          left: 24px;
-          right: -12px;
-          bottom: -12px;
-          background: rgba(11,12,237,0.06);
-          border-radius: 4px;
-          z-index: 0;
-        }
-
-        .b-frame {
-          position: relative;
-          border-radius: 4px;
           overflow: hidden;
-          aspect-ratio: 3/4;
-          max-height: 580px;
-          z-index: 1;
-          box-shadow: 0 24px 60px rgba(0,0,0,0.14);
         }
 
-        .b-slide {
+        .c-slide {
           position: absolute;
           inset: 0;
           opacity: 0;
-          transition: opacity 0.7s ease;
+          transition: opacity 0.8s ease;
           z-index: 1;
         }
 
-        .b-slide.active { opacity: 1; z-index: 2; }
+        .c-slide.active { opacity: 1; z-index: 2; }
 
-        .b-slide img {
+        .c-slide img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
+          transform: scale(1.04);
+          transition: transform 8s ease;
+          filter: brightness(0.75) saturate(0.85);
         }
 
-        .b-slide::after {
+        .c-slide.active img {
+          transform: scale(1);
+        }
+
+        /* Gradient overlay from left edge */
+        .c-slide::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to right, rgba(24,28,36,0.5) 0%, transparent 40%);
+          z-index: 1;
+        }
+
+        /* Bottom gradient */
+        .c-slide::after {
           content: '';
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
-          height: 50%;
-          background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+          height: 40%;
+          background: linear-gradient(to top, rgba(24,28,36,0.8), transparent);
           z-index: 1;
         }
 
-        .b-slide-lbl {
+        /* Bottom right overlay controls */
+        .c-controls {
           position: absolute;
-          bottom: 24px;
-          left: 24px;
-          z-index: 3;
-          color: rgba(255,255,255,0.8);
-          font-size: 0.72rem;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          opacity: 0;
-          transform: translateY(8px);
-          transition: all 0.5s ease 0.35s;
-        }
-
-        .b-slide.active .b-slide-lbl { opacity: 1; transform: translateY(0); }
-
-        /* Floating ISO badge */
-        .b-badge {
-          position: absolute;
-          bottom: 36px;
-          left: -32px;
-          background: #fff;
-          padding: 16px 20px;
-          border-radius: 4px;
-          box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+          bottom: 0;
+          left: 0;
+          right: 0;
           z-index: 10;
           display: flex;
-          flex-direction: column;
-          gap: 4px;
-          animation: bFloat 5s ease-in-out infinite;
+          align-items: flex-end;
+          justify-content: space-between;
+          padding: 28px 32px;
         }
 
-        @keyframes bFloat {
-          0%,100%{transform:translateY(0);}
-          50%{transform:translateY(-8px);}
+        .c-slide-info {
+          opacity: 0;
+          transform: translateY(12px);
+          transition: all 0.5s ease 0.4s;
         }
 
-        .b-badge-val {
-          font-family: 'Libre Baskerville', serif;
+        .c-slide.active .c-slide-info {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .c-slide-num {
+          font-family: 'Fraunces', serif;
+          font-size: 3rem;
+          font-weight: 700;
+          color: rgba(255,255,255,0.15);
+          line-height: 1;
+          margin-bottom: 4px;
+        }
+
+        .c-slide-lbl {
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.65);
+        }
+
+        .c-nav-group {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+
+        .c-nav-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.08);
+          color: rgba(255,255,255,0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
           font-size: 1.1rem;
+          transition: all 0.25s;
+          backdrop-filter: blur(6px);
+        }
+
+        .c-nav-btn:hover {
+          background: #0b0ced;
+          border-color: #0b0ced;
+          color: #fff;
+          transform: scale(1.05);
+        }
+
+        /* ISO badge top right of image */
+        .c-iso {
+          position: absolute;
+          top: 28px;
+          right: 28px;
+          z-index: 10;
+          background: rgba(24,28,36,0.85);
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(11,12,237,0.3);
+          border-radius: 12px;
+          padding: 12px 16px;
+          text-align: center;
+        }
+
+        .c-iso-val {
+          font-family: 'Fraunces', serif;
+          font-size: 1rem;
           font-weight: 700;
           color: #0b0ced;
           line-height: 1;
+          margin-bottom: 2px;
         }
 
-        .b-badge-txt {
-          font-size: 0.62rem;
+        .c-iso-lbl {
+          font-size: 0.6rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #9ca3af;
+          color: rgba(255,255,255,0.4);
         }
 
-        /* Counter top-right */
-        .b-counter {
+        /* Dots on right panel edge */
+        .c-dots {
           position: absolute;
-          top: -16px;
-          right: 16px;
-          background: #0b0ced;
-          color: #fff;
-          font-family: 'Outfit', sans-serif;
-          font-size: 0.75rem;
-          font-weight: 500;
-          padding: 6px 14px;
-          letter-spacing: 0.1em;
-          z-index: 10;
-          border-radius: 2px;
-        }
-
-        /* Dots */
-        .b-dots {
-          position: absolute;
-          right: -28px;
+          right: 20px;
           top: 50%;
           transform: translateY(-50%);
           display: flex;
@@ -417,140 +445,165 @@ const CarouselB = () => {
           z-index: 10;
         }
 
-        .b-dot {
-          width: 6px;
-          height: 6px;
+        .c-dot {
+          width: 4px;
+          height: 4px;
           border-radius: 50%;
-          background: rgba(0,0,0,0.15);
+          background: rgba(255,255,255,0.25);
           border: none;
           cursor: pointer;
           padding: 0;
           transition: all 0.3s;
         }
 
-        .b-dot.active {
-          height: 20px;
-          border-radius: 3px;
+        .c-dot.active {
+          height: 16px;
+          border-radius: 2px;
           background: #0b0ced;
         }
 
         /* RESPONSIVE */
         @media (max-width: 991px) {
-          .b-row { flex-direction: column; gap: 48px; }
-          .b-content { flex: none; width: 100%; padding-right: 0; text-align: center; align-items: center; display: flex; flex-direction: column; }
-          .b-sup { justify-content: center; }
-          .b-desc { border-left: none; border-top: 2px solid rgba(11,12,237,0.15); padding-left: 0; padding-top: 16px; max-width: 100%; }
-          .b-cta-row { justify-content: center; }
-          .b-stats { justify-content: center; }
-          .b-visual { flex: none; width: 100%; display: flex; justify-content: center; }
-          .b-visual > div { width: 100%; max-width: 400px; }
-          .b-bg-block { display: none; }
-          .b-badge { left: 0; }
-          .b-dots { right: -20px; }
+          #hero-c {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+          }
+          .c-left {
+            padding: 48px 32px 40px;
+            border-right: none;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+          }
+          .c-main { padding: 32px 0; }
+          .c-title { font-size: 3.5rem; }
+          .c-desc { max-width: 100%; }
+          .c-right {
+            min-height: 55vw;
+            max-height: 480px;
+          }
+          .c-dots { right: 12px; }
+          .c-header-row { display: none; }
         }
 
         @media (max-width: 576px) {
-          .b-inner { padding: 60px 0 60px; }
-          .b-title { font-size: 2.8rem; }
-          .b-frame { max-height: 400px; }
-          .b-badge { display: none; }
-          .b-dots { display: none; }
-          .b-counter { top: -14px; right: 8px; }
-          .b-stats { gap: 20px; }
+          .c-left { padding: 40px 24px 32px; }
+          .c-title { font-size: 2.8rem; }
+          .c-right {
+            min-height: 70vw;
+            max-height: 360px;
+          }
+          .c-iso { display: none; }
+          .c-dots { display: none; }
+          .c-bottom { gap: 0; }
+          .c-stat { padding-right: 12px; }
+          .c-stat:not(:last-child) { margin-right: 12px; }
+          .c-stat-val { font-size: 1.5rem; }
+          .c-slide-num { font-size: 2rem; }
         }
       `}</style>
 
-      <section id="hero-b">
-        <div className="b-circle-bg" />
-        <div className="b-circle-stroke" />
-        <div className="b-vr" />
-
-
-        <div className="container b-inner">
-          <div className="b-row">
-            {/* LEFT */}
-            <div className="b-content">
-              <div className="b-sup">
-                <span className="b-sup-line" />
-                <span className="b-sup-text">Orthobox Prosthetics</span>
+      <section id="hero-c">
+        {/* LEFT */}
+        <div className="c-left">
+          <div className="c-header-row">
+            <div className="c-logo-area">
+              <div className="c-logo-mark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
               </div>
+              <span className="c-brand">Orthobox</span>
+            </div>
+            <span className="c-year">Est. 2009</span>
+          </div>
 
-              <h1 className="b-title">
-                Beyond<br />
-                <em>Limits</em>
-              </h1>
+          <div className="c-main">
+            <div className="c-eyebrow">
+              <span className="c-eyebrow-dot" />
+              <span className="c-eyebrow-text">Prosthetics & Orthotics</span>
+            </div>
 
-              <p className="b-desc">
-                We design prosthetic solutions that don't just restore function —
-                they ignite possibility. With fresh thinking and technical excellence,
-                we ensure your abilities always outshine your disabilities.
-              </p>
+            <h1 className="c-title">
+              Beyond<br />
+              <span className="c-title-blue" style={{ position: 'relative' }}>
+                <span className="c-ghost" aria-hidden="true">Limits</span>
+                Limits
+              </span>
+            </h1>
 
-              <div className="b-cta-row">
-                <Link to="/about" className="b-btn">
-                  <span>Discover Our Story</span>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </Link>
-                <a href="#services" className="b-link">
-                  Our Services
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17l10-10M7 7h10v10"/>
-                  </svg>
-                </a>
-              </div>
+            <p className="c-desc">
+              We design prosthetic solutions that don't just restore function —
+              they ignite possibility. With fresh thinking and technical excellence,
+              we ensure your abilities always outshine your disabilities.
+            </p>
 
-              <div className="b-stats">
-                <div>
-                  <div className="b-stat-val">15+</div>
-                  <div className="b-stat-lbl">Years Experience</div>
-                </div>
-                <div>
-                  <div className="b-stat-val">2k+</div>
-                  <div className="b-stat-lbl">Lives Changed</div>
-                </div>
-                <div>
-                  <div className="b-stat-val">98%</div>
-                  <div className="b-stat-lbl">Satisfaction Rate</div>
+            <Link to="/about" className="c-btn">
+              <span>Discover Our Story</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </Link>
+          </div>
+
+          <div className="c-bottom">
+            <div className="c-stat">
+              <div className="c-stat-val">15+</div>
+              <div className="c-stat-lbl">Years Experience</div>
+            </div>
+            <div className="c-stat">
+              <div className="c-stat-val">2k+</div>
+              <div className="c-stat-lbl">Lives Changed</div>
+            </div>
+            <div className="c-stat">
+              <div className="c-stat-val">98%</div>
+              <div className="c-stat-lbl">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT: Full bleed image */}
+        <div className="c-right">
+          {slides.map((s, i) => (
+            <div key={i} className={`c-slide${i === current ? " active" : ""}`}>
+              <img src={s.img} alt={s.label} />
+              <div className="c-controls">
+                <div className="c-slide-info">
+                  <div className="c-slide-num">{String(i + 1).padStart(2, '0')}</div>
+                  <div className="c-slide-lbl">{s.label}</div>
                 </div>
               </div>
             </div>
+          ))}
 
-            {/* RIGHT */}
-            <div className="b-visual">
-              <div style={{ position: 'relative', width: '100%' }}>
-                <div className="b-bg-block" />
-                <div className="b-counter">{String(current + 1).padStart(2,'0')} / 04</div>
+          {/* ISO badge */}
+          <div className="c-iso">
+            <div className="c-iso-val">ISO</div>
+            <div className="c-iso-lbl">Certified<br />Medical</div>
+          </div>
 
-                <div className="b-frame">
-                  {slides.map((s, i) => (
-                    <div key={i} className={`b-slide${i === current ? " active" : ""}`}>
-                      <img src={s.img} alt={s.label} />
-                      <span className="b-slide-lbl">{s.label}</span>
-                    </div>
-                  ))}
-                </div>
+          {/* Dots */}
+          <div className="c-dots">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`c-dot${i === current ? " active" : ""}`}
+                onClick={() => handleDotClick(i)}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
 
-                {/* Side dots */}
-                <div className="b-dots">
-                  {slides.map((_, i) => (
-                    <button
-                      key={i}
-                      className={`b-dot${i === current ? " active" : ""}`}
-                      onClick={() => handleDotClick(i)}
-                      aria-label={`Slide ${i + 1}`}
-                    />
-                  ))}
-                </div>
-
-                {/* Badge */}
-                <div className="b-badge">
-                  <div className="b-badge-val">ISO</div>
-                  <div className="b-badge-txt">Certified<br/>Medical Grade</div>
-                </div>
-              </div>
-            </div>
+          {/* Nav */}
+          <div style={{ position: 'absolute', bottom: 28, right: 32, display: 'flex', gap: 8, zIndex: 10 }}>
+            <button
+              className="c-nav-btn"
+              onClick={() => { stopAuto(); goTo("prev"); }}
+              aria-label="Previous"
+            >&#8249;</button>
+            <button
+              className="c-nav-btn"
+              onClick={() => { stopAuto(); goTo("next"); }}
+              aria-label="Next"
+            >&#8250;</button>
           </div>
         </div>
       </section>
@@ -558,6 +611,4 @@ const CarouselB = () => {
   );
 };
 
-export default CarouselB;
-
-
+export default CarouselC;
