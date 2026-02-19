@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import shapeImg from "../img/img-wave2.png";
 import heroImg1 from "../img/header/hero-image-1.jpg";
@@ -16,26 +16,13 @@ const slides = [
 const Carousel = () => {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const [direction, setDirection] = useState("next");
+  // Removed [direction, setDirection] because it wasn't being used in the JSX
   const intervalRef = useRef(null);
 
-  const startAuto = () => {
-    intervalRef.current = setInterval(() => {
-      goTo("next");
-    }, 5000);
-  };
-
-  const stopAuto = () => clearInterval(intervalRef.current);
-
-  useEffect(() => {
-    startAuto();
-    return () => stopAuto();
-  }, [current]);
-
-  const goTo = (dir, index = null) => {
+  const goTo = useCallback((dir, index = null) => {
     if (animating) return;
     setAnimating(true);
-    setDirection(dir);
+    
     setTimeout(() => {
       if (index !== null) {
         setCurrent(index);
@@ -48,7 +35,23 @@ const Carousel = () => {
       }
       setAnimating(false);
     }, 500);
-  };
+  }, [animating]);
+
+  const stopAuto = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  }, []);
+
+  const startAuto = useCallback(() => {
+    stopAuto(); // Clear any existing interval before starting a new one
+    intervalRef.current = setInterval(() => {
+      goTo("next");
+    }, 5000);
+  }, [goTo, stopAuto]);
+
+  useEffect(() => {
+    startAuto();
+    return () => stopAuto();
+  }, [startAuto, stopAuto]); // Added dependencies to satisfy ESLint
 
   const handleDotClick = (i) => {
     stopAuto();
@@ -83,7 +86,6 @@ const Carousel = () => {
           padding: 0;
         }
 
-        /* Ambient background shapes */
         #hero::before {
           content: '';
           position: absolute;
@@ -125,7 +127,6 @@ const Carousel = () => {
           padding: 80px 0 60px;
         }
 
-        /* ---- LEFT CONTENT ---- */
         .hero-content {
           display: flex;
           flex-direction: column;
@@ -246,7 +247,6 @@ const Carousel = () => {
 
         .btn-primary-hero:hover::before { transform: scaleX(1); }
         .btn-primary-hero:hover { color: #fff; box-shadow: 0 12px 32px rgba(26,92,107,0.38); transform: translateY(-2px); }
-
         .btn-primary-hero span { position: relative; z-index: 1; }
 
         .btn-arrow {
@@ -291,7 +291,6 @@ const Carousel = () => {
           font-weight: 500;
         }
 
-        /* ---- RIGHT CAROUSEL ---- */
         .hero-visual {
           position: relative;
           animation: fadeSlideUp 1s var(--transition) 0.3s both;
@@ -331,7 +330,6 @@ const Carousel = () => {
           display: block;
         }
 
-        /* Gradient overlay at bottom of images */
         .carousel-slide::after {
           content: '';
           position: absolute;
@@ -363,7 +361,6 @@ const Carousel = () => {
           transform: translateY(0);
         }
 
-        /* Floating decorative card */
         .floating-badge {
           position: absolute;
           top: -22px;
@@ -411,7 +408,6 @@ const Carousel = () => {
           text-transform: uppercase;
         }
 
-        /* Bottom-right floating tag */
         .floating-tag {
           position: absolute;
           bottom: -18px;
@@ -433,7 +429,6 @@ const Carousel = () => {
           50% { transform: translateY(-6px); }
         }
 
-        /* Dots */
         .carousel-dots {
           display: flex;
           gap: 8px;
@@ -458,7 +453,6 @@ const Carousel = () => {
           background: var(--accent);
         }
 
-        /* Nav arrows */
         .carousel-nav {
           position: absolute;
           top: 50%;
@@ -493,11 +487,8 @@ const Carousel = () => {
           transform: scale(1.08);
         }
 
-        /* ---- RESPONSIVE ---- */
         @media (max-width: 991px) {
-          .hero-inner {
-            padding: 60px 0 40px;
-          }
+          .hero-inner { padding: 60px 0 40px; }
           .hero-content {
             padding-right: 0;
             padding-bottom: 40px;
@@ -525,26 +516,20 @@ const Carousel = () => {
 
       <section id="hero">
         <img className="hero-wave-shape" src={shapeImg} alt="" aria-hidden="true" />
-
         <div className="container hero-inner">
           <div className="row align-items-center">
-
-            {/* ── LEFT: Content ── */}
             <div className="col-lg-7 col-md-12 col-12">
               <div className="hero-content">
                 <span className="hero-eyebrow">Orthobox Prosthetics</span>
-
                 <h1 className="hero-title">
                   Beyond<br />
                   <span>Limits</span>
                 </h1>
-
                 <p className="hero-desc">
                   We design prosthetic solutions that don't just restore function —
                   they ignite possibility. With fresh thinking and technical excellence,
                   we ensure your abilities always outshine your disabilities.
                 </p>
-
                 <div className="hero-actions">
                   <Link to="/about" className="btn-primary-hero">
                     <span>Discover Our Story</span>
@@ -553,7 +538,6 @@ const Carousel = () => {
                     </svg>
                   </Link>
                 </div>
-
                 <div className="stat-pills">
                   <div className="stat-pill">
                     <span className="stat-pill-value">15+</span>
@@ -571,11 +555,8 @@ const Carousel = () => {
               </div>
             </div>
 
-            {/* ── RIGHT: Carousel ── */}
             <div className="col-lg-5 col-md-12 col-12">
               <div className="hero-visual">
-
-                {/* Floating badge top-left */}
                 <div className="floating-badge">
                   <div className="badge-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -588,7 +569,6 @@ const Carousel = () => {
                   </div>
                 </div>
 
-                {/* Carousel frame */}
                 <div className="carousel-frame">
                   {slides.map((slide, i) => (
                     <div
@@ -601,7 +581,6 @@ const Carousel = () => {
                   ))}
                 </div>
 
-                {/* Dots */}
                 <div className="carousel-dots">
                   {slides.map((_, i) => (
                     <button
@@ -613,7 +592,6 @@ const Carousel = () => {
                   ))}
                 </div>
 
-                {/* Nav arrows */}
                 <div className="carousel-nav left">
                   <button
                     className="nav-btn"
@@ -632,12 +610,9 @@ const Carousel = () => {
                     ›
                   </button>
                 </div>
-
-                {/* Floating tag bottom-right */}
                 <div className="floating-tag">✦ Advanced Prosthetics</div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
