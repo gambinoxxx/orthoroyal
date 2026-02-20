@@ -1804,48 +1804,6 @@ section {
   flex-shrink: 0;
 }
 
-/* CTA Button */
-.ob-revenue-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  background: #0b0e16;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  border: 1px solid #0b0e16;
-}
-
-.ob-revenue-cta:hover {
-  background: #0b0ced;
-  border-color: #0b0ced;
-  color: #fff;
-  gap: 16px;
-  box-shadow: 0 8px 28px rgba(11, 12, 237, 0.35);
-}
-
-.ob-revenue-cta-arrow {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
-  flex-shrink: 0;
-}
-
-.ob-revenue-cta:hover .ob-revenue-cta-arrow {
-  background: rgba(255, 255, 255, 0.2);
-}
-
 /* ══════════════════════════════════════
    RIGHT VISUAL
 ══════════════════════════════════════ */
@@ -2011,8 +1969,31 @@ section {
     padding: 0 28px;
   }
 
-  .ob-revenue-heading { font-size: clamp(1.8rem, 6vw, 2.5rem); }
-  .ob-revenue-body { max-width: 100%; }
+  /* ── Center all left-column content when stacked ── */
+  .ob-revenue-eyebrow {
+    justify-content: center;
+  }
+
+  .ob-revenue-heading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    text-align: center;
+  }
+
+  .ob-revenue-body {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .ob-revenue-body--accent {
+    text-align: left; /* keep left-border accent readable */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 520px;
+  }
+
+  .ob-revenue-stats {
+    justify-content: center;
+  }
 
   .ob-revenue-visual {
     padding: 24px 24px 40px 24px;
@@ -2032,6 +2013,12 @@ section {
   .ob-revenue-stats {
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
+  }
+
+  .ob-revenue-stat {
+    align-items: center;
+    text-align: center;
   }
 
   .ob-revenue-stat-divider { display: none; }
