@@ -16,9 +16,9 @@ const Home = () => {
       <main id="main">
         <ServiceList/>
         <ClientList/>
-        <Testimonials/>
+       <Revenue/>
         <Faq/>
-        <Revenue/>
+        <Testimonials/>
       </main>
       <Footer />
     </>
@@ -26,6 +26,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 
