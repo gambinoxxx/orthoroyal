@@ -62,7 +62,7 @@ const Contact = () => {
       );
   };
 
-  const finishSubmit = useCallback(() => {}, [inputFields]);
+  const finishSubmit = useCallback(() => {}, []);
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && submitting) {
