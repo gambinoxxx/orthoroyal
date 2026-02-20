@@ -3034,44 +3034,148 @@ section {
 }
 
 @media (max-width: 820px) {
-  #ob-services { padding: 80px 0 64px; }
+  #ob-services { padding: 72px 0 56px; }
 
   .ob-services-header {
-    padding: 0 24px;
-    margin-bottom: 48px;
+    padding: 0 20px;
+    margin-bottom: 40px;
   }
 
   .ob-services-header-row {
     grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .ob-services-sub { justify-self: start; max-width: 100%; }
-
-  .ob-services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 24px;
     gap: 14px;
   }
 
-  .ob-services-footer { padding: 0 24px; }
-}
+  .ob-services-heading { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .ob-services-sub { justify-self: start; max-width: 100%; }
 
-@media (max-width: 540px) {
+  /* 2-col grid on tablet */
   .ob-services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
     gap: 12px;
   }
 
-  .ob-svc-card { min-height: auto; padding: 28px 22px 24px; }
+  .ob-services-footer { padding: 0 20px; }
 
-  /* On mobile, show overlay content inline instead of on hover */
-  .ob-svc-overlay { display: none; }
-  .ob-svc-short {
-    display: none;
+  /* On tablet, overlay stays hover-based — just tighten card padding */
+  .ob-svc-card { padding: 28px 22px 26px; min-height: 240px; }
+}
+
+/* ── MOBILE: full accordion-style native layout ── */
+@media (max-width: 540px) {
+  #ob-services { padding: 60px 0 48px; }
+
+  .ob-services-header { padding: 0 16px; margin-bottom: 32px; }
+  .ob-services-heading { font-size: 1.75rem; }
+
+  /* Single column stacked list */
+  .ob-services-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 10px;
   }
+
+  /* Mobile card: horizontal row layout */
+  .ob-svc-card {
+    min-height: auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0;
+    border-radius: 14px;
+    overflow: visible; /* allow accent line to show */
+  }
+
+  /* Hide the hover overlay entirely on touch — use static layout instead */
+  .ob-svc-overlay { display: none !important; }
+
+  /* Accent line becomes left border stripe */
+  .ob-svc-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    transform: scaleY(1) !important; /* always visible */
+    transform-origin: top;
+    border-radius: 14px 0 0 14px;
+  }
+
+  /* Left column: icon block */
+  .ob-svc-icon-wrap {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 56px;
+    height: auto;
+    min-height: 100%;
+    border-radius: 14px 0 0 14px;
+    background: color-mix(in srgb, var(--ob-svc-accent) 8%, #f9fafb);
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 22px;
+    border-right: 1px solid rgba(11, 14, 22, 0.05);
+  }
+
+  .ob-svc-icon { font-size: 1.3rem; }
+
+  /* Right column content */
+  .ob-svc-num {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 0.6rem;
+    margin: 0;
+    padding: 16px 18px 6px;
+    display: block;
+  }
+
+  .ob-svc-title {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0 18px 8px;
+  }
+
+  .ob-svc-short {
+    grid-column: 2;
+    grid-row: 3;
+    display: block; /* visible on mobile — it's the teaser */
+    font-size: 0.75rem;
+    color: #6b7280;
+    padding: 0 18px 18px;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* Description shown below each card as a panel */
   .ob-svc-card::after {
-    content: attr(data-desc);
+    content: none; /* remove old broken approach */
+  }
+
+  /* Footer CTA full width on mobile */
+  .ob-services-footer {
+    padding: 0 16px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ob-services-footer-line { display: none; }
+
+  .ob-services-all-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 28px;
+    font-size: 0.78rem;
+  }
+
+  /* Ghost watermark — smaller on mobile */
+  .ob-services-geo {
+    font-size: 5rem;
+    bottom: -20px;
   }
 }
 
@@ -3321,4 +3425,107 @@ section {
   .ob-clients-count { flex-wrap: wrap; gap: 20px; }
   .ob-clients-count-divider { display: none; }
   .ob-clients-count-item { min-width: 100px; }
+}
+
+/* ── Mobile expand button — hidden on desktop ── */
+.ob-svc-expand-btn {
+  display: none; /* hidden on desktop */
+}
+
+/* ── Mobile expandable panel — hidden on desktop ── */
+.ob-svc-mobile-panel {
+  display: none; /* hidden on desktop */
+}
+
+/* ── MOBILE-ONLY: show expand controls ── */
+@media (max-width: 540px) {
+
+  /* Expand button: sits in bottom-right of card */
+  .ob-svc-expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    grid-row: 4;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 18px 14px;
+    justify-self: start;
+    color: var(--ob-svc-accent);
+    transition: transform 0.3s ease;
+  }
+
+  .ob-svc-expand-btn--open svg {
+    transform: rotate(180deg);
+  }
+
+  .ob-svc-expand-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  /* Expandable description panel below each card */
+  .ob-svc-mobile-panel {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                padding 0.3s ease;
+    opacity: 0;
+    background: #fff;
+    border-left: 3px solid var(--ob-svc-accent);
+    border-radius: 0 0 12px 12px;
+    margin-top: -8px;
+    padding: 0 16px;
+  }
+
+  .ob-svc-mobile-panel--open {
+    max-height: 300px;
+    opacity: 1;
+    padding: 16px 16px 20px;
+  }
+
+  .ob-svc-mobile-panel-desc {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #4b5563;
+    line-height: 1.85;
+    margin: 0 0 14px;
+  }
+
+  .ob-svc-mobile-panel-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ob-svc-accent);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .ob-svc-mobile-panel-cta:hover {
+    gap: 12px;
+    color: var(--ob-svc-accent);
+  }
+
+  /* Grid must allow the panel to span full width below the card */
+  .ob-services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Add spacing between card+panel groups */
+  .ob-svc-card {
+    margin-top: 10px;
+  }
+
+  .ob-svc-mobile-panel:not(.ob-svc-mobile-panel--open) + .ob-svc-card,
+  .ob-svc-card:first-child {
+    margin-top: 0;
+  }
 }
