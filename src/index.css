@@ -1,6 +1,6 @@
 /**
-* Website Name: orthobox
-* Author: gambino
+* Website Name: SymbioticInfotech
+* Author: Murugan
 **/
 
 
@@ -3073,4 +3073,252 @@ section {
   .ob-svc-card::after {
     content: attr(data-desc);
   }
+}
+
+/*--------------------------------------------------------------
+# Clients Section — Dual Infinite Marquee
+# Scoped to #ob-clients and .ob-clients-* prefixes
+--------------------------------------------------------------*/
+
+#ob-clients {
+  position: relative;
+  background: #ffffff;
+  padding: 100px 0 80px;
+  overflow: hidden;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ── HEADER ── */
+.ob-clients-header {
+  max-width: 1320px;
+  margin: 0 auto 56px;
+  padding: 0 56px;
+  text-align: center;
+}
+
+.ob-clients-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0b0ced;
+  margin-bottom: 18px;
+}
+
+.ob-clients-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0b0ced;
+  box-shadow: 0 0 8px rgba(11, 12, 237, 0.6);
+  animation: obDotPulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.ob-clients-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0b0e16;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.ob-clients-heading em {
+  font-style: italic;
+  color: #0b0ced;
+}
+
+.ob-clients-sub {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: #6b7280;
+  line-height: 1.75;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ── MARQUEE STAGE ── */
+.ob-clients-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+/* Edge fade masks — white gradient on both sides */
+.ob-clients-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ob-clients-fade--left {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+}
+
+.ob-clients-fade--right {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+}
+
+/* ── MARQUEE ROW ── */
+.ob-clients-row {
+  overflow: hidden;
+  width: 100%;
+}
+
+.ob-clients-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Scroll left */
+.ob-clients-track--left {
+  animation: obMarqueeLeft var(--ob-marquee-speed, 35s) linear infinite;
+}
+
+/* Scroll right */
+.ob-clients-track--right {
+  animation: obMarqueeRight var(--ob-marquee-speed, 35s) linear infinite;
+}
+
+@keyframes obMarqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes obMarqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Pause on hover */
+.ob-clients-stage:hover .ob-clients-track {
+  animation-play-state: paused;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .ob-clients-track--left,
+  .ob-clients-track--right {
+    animation: none;
+  }
+}
+
+/* ── INDIVIDUAL LOGO TILE ── */
+.ob-clients-logo {
+  flex-shrink: 0;
+  width: 140px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  border: 1px solid rgba(11, 14, 22, 0.06);
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: all 0.3s ease;
+}
+
+.ob-clients-logo:hover {
+  background: #fff;
+  border-color: rgba(11, 12, 237, 0.15);
+  box-shadow: 0 4px 20px rgba(11, 12, 237, 0.08);
+  transform: translateY(-2px);
+}
+
+.ob-clients-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: filter 0.3s ease;
+}
+
+.ob-clients-logo:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* ── COUNT STRIP ── */
+.ob-clients-count {
+  max-width: 1320px;
+  margin: 52px auto 0;
+  padding: 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+.ob-clients-count-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.ob-clients-count-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b0e16;
+  line-height: 1;
+}
+
+.ob-clients-count-num em {
+  font-style: normal;
+  color: #0b0ced;
+  font-size: 1.2rem;
+}
+
+.ob-clients-count-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.ob-clients-count-divider {
+  width: 1px;
+  height: 44px;
+  background: rgba(11, 14, 22, 0.08);
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .ob-clients-header { padding: 0 36px; }
+  .ob-clients-count { padding: 0 36px; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  #ob-clients { padding: 72px 0 64px; }
+  .ob-clients-header { padding: 0 24px; margin-bottom: 40px; }
+  .ob-clients-logo { width: 110px; height: 64px; padding: 10px 14px; }
+  .ob-clients-fade { width: 80px; }
+  .ob-clients-count { padding: 0 24px; gap: 24px; }
+  .ob-clients-count-num { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+  .ob-clients-count { flex-wrap: wrap; gap: 20px; }
+  .ob-clients-count-divider { display: none; }
+  .ob-clients-count-item { min-width: 100px; }
 }
