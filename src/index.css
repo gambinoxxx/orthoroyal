@@ -3963,7 +3963,7 @@ section {
 
 #ob-contact {
   position: relative;
-  background: linear-gradient(150deg, #0b0ced 0%, #0a13a8 50%, #07108f 100%);
+  background: #ffffff;
   overflow: hidden;
   font-family: 'Manrope', sans-serif;
   padding: 100px 0 120px;
@@ -3978,7 +3978,7 @@ section {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(11,12,237,0.04) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -3992,7 +3992,7 @@ section {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(11,12,237,0.03) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -4007,7 +4007,7 @@ section {
   font-weight: 900;
   font-style: italic;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.05);
+  -webkit-text-stroke: 1px rgba(11,12,237,0.05);
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -4038,7 +4038,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: #0b0ced;
   margin-bottom: 18px;
 }
 
@@ -4046,8 +4046,8 @@ section {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  background: #0b0ced;
+  box-shadow: 0 0 10px rgba(11,12,237,0.5);
   animation: obDotPulse 2.5s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -4056,7 +4056,7 @@ section {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 700;
-  color: #fff;
+  color: #0b0e16;
   line-height: 1.08;
   letter-spacing: -0.02em;
   margin: 0 0 16px;
@@ -4064,13 +4064,13 @@ section {
 
 .ob-contact-page-heading em {
   font-style: italic;
-  color: rgba(255,255,255,0.55);
+  color: #0b0ced;
 }
 
 .ob-contact-page-sub {
   font-size: 0.92rem;
   font-weight: 300;
-  color: rgba(255,255,255,0.5);
+  color: #6b7280;
   line-height: 1.8;
   max-width: 460px;
   margin: 0 auto;
@@ -4090,30 +4090,30 @@ section {
   align-items: flex-start;
   gap: 10px;
   padding: 22px 20px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: #f4f6ff;
+  border: 1px solid rgba(11,12,237,0.1);
   border-radius: 14px;
-  backdrop-filter: blur(8px);
-  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ob-contact-tile:hover {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.22);
+  background: #fff;
+  border-color: rgba(11,12,237,0.25);
   transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(11,12,237,0.08);
 }
 
 .ob-contact-tile-icon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(11,12,237,0.08);
+  border: 1px solid rgba(11,12,237,0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: #fff;
+  color: #0b0ced;
   flex-shrink: 0;
 }
 
@@ -4122,14 +4122,14 @@ section {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(11,14,22,0.35);
   display: block;
 }
 
 .ob-contact-tile-text {
   font-size: 0.8rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.85);
+  color: #374151;
   line-height: 1.5;
   display: block;
 }
@@ -4137,12 +4137,12 @@ section {
 .ob-contact-tile-link {
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  color: #0b0ced;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.ob-contact-tile-link:hover { color: #fff; }
+.ob-contact-tile-link:hover { color: #0a13a8; }
 
 /* ── FORM CARD ── */
 .ob-contact-card {
