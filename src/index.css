@@ -3954,3 +3954,467 @@ section {
   .ob-svcpage-title { font-size: 1.7rem; }
   .ob-svcpage-cta { width: 100%; justify-content: center; }
 }
+
+/*--------------------------------------------------------------
+# Contact Page — Split dark/white layout
+# Scoped to #ob-contact and .ob-contact-* prefixes
+--------------------------------------------------------------*/
+
+#ob-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ═══════════════════════════════════════
+   LEFT PANEL — dark info
+═══════════════════════════════════════ */
+.ob-contact-info {
+  position: relative;
+  background: linear-gradient(160deg, #0b0e16 0%, #111827 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.ob-contact-info-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 80px 56px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Ghost watermark */
+.ob-contact-geo {
+  position: absolute;
+  bottom: -50px;
+  right: -20px;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(6rem, 16vw, 12rem);
+  font-weight: 900;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* Eyebrow */
+.ob-contact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+
+.ob-contact-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0b0ced;
+  box-shadow: 0 0 8px rgba(11,12,237,0.7);
+  animation: obDotPulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.ob-contact-info-header {
+  margin-bottom: 48px;
+}
+
+.ob-contact-info-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.ob-contact-info-heading em {
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+}
+
+.ob-contact-info-sub {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* Info tiles */
+.ob-contact-tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 40px;
+  flex: 1;
+}
+
+.ob-contact-tile {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.ob-contact-tile:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.ob-contact-tile-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: rgba(11,12,237,0.2);
+  border: 1px solid rgba(11,12,237,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6b8fff;
+  font-size: 1rem;
+}
+
+.ob-contact-tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ob-contact-tile-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.ob-contact-tile-text {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+
+.ob-contact-tile-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #6b8fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ob-contact-tile-link:hover {
+  color: #fff;
+}
+
+/* Social icons */
+.ob-contact-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.ob-contact-social {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.ob-contact-social:hover {
+  background: #0b0ced;
+  border-color: #0b0ced;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11,12,237,0.35);
+}
+
+/* ═══════════════════════════════════════
+   RIGHT PANEL — form
+═══════════════════════════════════════ */
+.ob-contact-form-wrap {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ob-contact-form-inner {
+  width: 100%;
+  max-width: 520px;
+  padding: 80px 56px;
+}
+
+.ob-contact-form-heading {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0b0e16;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.ob-contact-form-sub {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  font-weight: 400;
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+
+/* ── FORM ── */
+.ob-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ob-contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── FLOATING LABEL FIELD ── */
+.ob-contact-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.ob-contact-field input,
+.ob-contact-field textarea {
+  width: 100%;
+  padding: 18px 16px 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #0b0e16;
+  background: #f9fafb;
+  border: 1.5px solid rgba(11,14,22,0.1);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.ob-contact-field textarea {
+  min-height: 130px;
+}
+
+/* Floating label */
+.ob-contact-field label {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #9ca3af;
+  pointer-events: none;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+/* Label floats up when input is focused or filled */
+.ob-contact-field input:focus ~ label,
+.ob-contact-field input:not(:placeholder-shown) ~ label,
+.ob-contact-field textarea:focus ~ label,
+.ob-contact-field textarea:not(:placeholder-shown) ~ label,
+.ob-contact-field--filled label {
+  top: 6px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b0ced;
+}
+
+/* Bottom accent bar */
+.ob-contact-field-bar {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: #0b0ced;
+  border-radius: 0 0 2px 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.ob-contact-field input:focus ~ .ob-contact-field-bar,
+.ob-contact-field textarea:focus ~ .ob-contact-field-bar {
+  transform: scaleX(1);
+}
+
+/* Focus state */
+.ob-contact-field input:focus,
+.ob-contact-field textarea:focus {
+  border-color: rgba(11,12,237,0.3);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(11,12,237,0.06);
+}
+
+/* Error state */
+.ob-contact-field--error input,
+.ob-contact-field--error textarea {
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+
+.ob-contact-field--error label {
+  color: #ef4444 !important;
+}
+
+.ob-contact-field--error .ob-contact-field-bar {
+  background: #ef4444;
+}
+
+.ob-contact-error {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #ef4444;
+  padding-left: 2px;
+}
+
+/* Success message */
+.ob-contact-success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  color: #16a34a;
+  font-size: 0.82rem;
+  font-weight: 500;
+  animation: obFaqFadeIn 0.35s ease both;
+}
+
+.ob-contact-success i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* Submit button */
+.ob-contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: #0b0e16;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.ob-contact-submit:hover:not(:disabled) {
+  background: #0b0ced;
+  gap: 16px;
+  box-shadow: 0 8px 28px rgba(11,12,237,0.3);
+}
+
+.ob-contact-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ob-contact-submit--sending {
+  background: #374151;
+}
+
+/* Spinner */
+.ob-contact-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: obContactSpin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes obContactSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .ob-contact-info-inner { padding: 64px 36px; }
+  .ob-contact-form-inner { padding: 64px 36px; }
+}
+
+@media (max-width: 820px) {
+  #ob-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .ob-contact-info-inner { padding: 56px 24px; }
+  .ob-contact-info-sub { max-width: 100%; }
+
+  .ob-contact-tiles { gap: 8px; }
+
+  .ob-contact-form-wrap {
+    border-top: 1px solid rgba(11,14,22,0.06);
+  }
+
+  .ob-contact-form-inner {
+    padding: 48px 24px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .ob-contact-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ob-contact-info-inner { padding: 48px 16px; }
+  .ob-contact-form-inner { padding: 40px 16px; }
+
+  .ob-contact-info-heading { font-size: 1.7rem; }
+  .ob-contact-form-heading { font-size: 1.5rem; }
+}
