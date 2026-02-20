@@ -38,29 +38,15 @@ const Revenue = () => {
           {/* Stats row */}
           <div className="ob-revenue-stats">
             <div className="ob-revenue-stat">
-              <span className="ob-revenue-stat-num">10<em>+</em></span>
+              <span className="ob-revenue-stat-num">15<em>+</em></span>
               <span className="ob-revenue-stat-label">Years of expertise</span>
             </div>
             <div className="ob-revenue-stat-divider"></div>
             <div className="ob-revenue-stat">
-              <span className="ob-revenue-stat-num">5k<em>+</em></span>
+              <span className="ob-revenue-stat-num">300<em>+</em></span>
               <span className="ob-revenue-stat-label">Lives transformed</span>
             </div>
-            <div className="ob-revenue-stat-divider"></div>
-            <div className="ob-revenue-stat">
-              <span className="ob-revenue-stat-num">12<em>+</em></span>
-              <span className="ob-revenue-stat-label">African nations served</span>
-            </div>
           </div>
-
-          <Link to="/about" className="ob-revenue-cta">
-            <span>Read Our Story</span>
-            <span className="ob-revenue-cta-arrow">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </Link>
         </div>
 
         {/* ── RIGHT: Image ── */}
