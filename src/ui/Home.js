@@ -5,7 +5,7 @@ import Carousel from "../components/Carousel";
 import ClientList from "../components/ClientList";
 import ServiceList from "../components/ServiceList";
 import Revenue from "../components/Revenue";
-import Facts from "../components/Faq";
+import Faq from "../components/Faq";
 import Testimonials from "../components/Testimonials";
 
 const Home = () => {
@@ -26,5 +26,6 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
