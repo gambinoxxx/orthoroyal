@@ -46,48 +46,80 @@ const services = [
 
 const ServiceCard = ({ id, delay, icon, accent, title, shortLine, description }) => {
   const [hovered, setHovered] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <div
-      className="ob-svc-card"
-      data-aos="fade-up"
-      data-aos-delay={delay}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{ '--ob-svc-accent': accent }}
-    >
-      {/* Accent top line */}
-      <div className="ob-svc-accent-line"></div>
+    <>
+      <div
+        className="ob-svc-card"
+        data-aos="fade-up"
+        data-aos-delay={delay}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ '--ob-svc-accent': accent }}
+      >
+        {/* Accent top line (desktop) / left stripe (mobile via CSS) */}
+        <div className="ob-svc-accent-line"></div>
 
-      {/* Card number */}
-      <span className="ob-svc-num">{id}</span>
+        {/* Card number */}
+        <span className="ob-svc-num">{id}</span>
 
-      {/* Icon */}
-      <div className="ob-svc-icon-wrap">
-        <i className={`bi ${icon} ob-svc-icon`}></i>
-      </div>
+        {/* Icon */}
+        <div className="ob-svc-icon-wrap">
+          <i className={`bi ${icon} ob-svc-icon`}></i>
+        </div>
 
-      {/* Static content */}
-      <h3 className="ob-svc-title">{title}</h3>
-      <p className="ob-svc-short">{shortLine}</p>
+        {/* Static content */}
+        <h3 className="ob-svc-title">{title}</h3>
+        <p className="ob-svc-short">{shortLine}</p>
 
-      {/* Hover overlay */}
-      <div className={`ob-svc-overlay${hovered ? ' ob-svc-overlay--visible' : ''}`}>
-        <div className="ob-svc-overlay-inner">
-          <div className="ob-svc-overlay-icon-wrap">
-            <i className={`bi ${icon}`}></i>
+        {/* Mobile expand toggle — only visible on mobile via CSS */}
+        <button
+          type="button"
+          className={`ob-svc-expand-btn${expanded ? ' ob-svc-expand-btn--open' : ''}`}
+          onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
+          aria-label={`${expanded ? 'Collapse' : 'Expand'} ${title}`}
+          style={{ '--ob-svc-accent': accent }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+
+        {/* Desktop hover overlay */}
+        <div className={`ob-svc-overlay${hovered ? ' ob-svc-overlay--visible' : ''}`}>
+          <div className="ob-svc-overlay-inner">
+            <div className="ob-svc-overlay-icon-wrap">
+              <i className={`bi ${icon}`}></i>
+            </div>
+            <h3 className="ob-svc-overlay-title">{title}</h3>
+            <p className="ob-svc-overlay-desc">{description}</p>
+            <Link to="/services" className="ob-svc-overlay-cta">
+              <span>Learn More</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
-          <h3 className="ob-svc-overlay-title">{title}</h3>
-          <p className="ob-svc-overlay-desc">{description}</p>
-          <Link to="/services" className="ob-svc-overlay-cta">
-            <span>Learn More</span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
         </div>
       </div>
-    </div>
+
+      {/* Mobile-only expandable description panel — sits outside the card grid cell */}
+      <div
+        className={`ob-svc-mobile-panel${expanded ? ' ob-svc-mobile-panel--open' : ''}`}
+        style={{ '--ob-svc-accent': accent }}
+        aria-hidden={!expanded}
+      >
+        <p className="ob-svc-mobile-panel-desc">{description}</p>
+        <Link to="/services" className="ob-svc-mobile-panel-cta">
+          Learn More
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </Link>
+      </div>
+    </>
   );
 };
 
