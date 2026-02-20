@@ -2030,3 +2030,340 @@ section {
     right: 12px;
   }
 }
+
+/*--------------------------------------------------------------
+# Testimonials — Orthobox Redesign
+# Scoped to #ob-testimonials and .ob-t* prefixes
+--------------------------------------------------------------*/
+
+#ob-testimonials {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+  padding: 120px 0 100px;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Ghost watermark */
+.ob-testimonials-geo {
+  position: absolute;
+  bottom: -40px;
+  left: -10px;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 900;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(11, 12, 237, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.04em;
+  z-index: 0;
+}
+
+/* ── SECTION HEADER ── */
+.ob-testimonials-header {
+  max-width: 1320px;
+  margin: 0 auto 64px;
+  padding: 0 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.ob-testimonials-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0b0ced;
+  margin-bottom: 20px;
+}
+
+.ob-testimonials-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0b0ced;
+  box-shadow: 0 0 8px rgba(11, 12, 237, 0.6);
+  animation: obDotPulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.ob-testimonials-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0b0e16;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.ob-testimonials-heading em {
+  font-style: italic;
+  color: #0b0ced;
+}
+
+.ob-testimonials-sub {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #6b7280;
+  line-height: 1.75;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ── CAROUSEL WRAPPER ── */
+.ob-testimonials-track {
+  position: relative;
+  z-index: 1;
+  padding: 0 56px 60px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.ob-testimonials-carousel {
+  padding-bottom: 48px;
+}
+
+/* react-multi-carousel arrow overrides */
+.ob-testimonials-track .react-multiple-carousel__arrow {
+  background: #0b0e16;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border: none;
+  transition: background 0.25s ease;
+}
+
+.ob-testimonials-track .react-multiple-carousel__arrow:hover {
+  background: #0b0ced;
+}
+
+.ob-testimonials-track .react-multiple-carousel__arrow::before {
+  font-size: 13px;
+  color: #fff;
+}
+
+.ob-testimonials-track .react-multiple-carousel__arrow--left {
+  left: 0;
+}
+
+.ob-testimonials-track .react-multiple-carousel__arrow--right {
+  right: 0;
+}
+
+/* Dot styles */
+.ob-testimonials-dots {
+  bottom: 8px;
+}
+
+.ob-testimonials-track .react-multi-carousel-dot button {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(11, 14, 22, 0.15);
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.ob-testimonials-track .react-multi-carousel-dot--active button {
+  background: #0b0ced;
+  width: 22px;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(11, 12, 237, 0.4);
+}
+
+/* Card item spacing */
+.ob-tcard-item {
+  padding: 0 14px;
+}
+
+/* ── TESTIMONIAL CARD ── */
+.ob-tcard {
+  background: #ffffff;
+  border: 1px solid rgba(11, 14, 22, 0.07);
+  border-radius: 16px;
+  padding: 36px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.ob-tcard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0b0ced;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ob-tcard:hover {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.02),
+    0 20px 48px rgba(11, 12, 237, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  border-color: rgba(11, 12, 237, 0.12);
+}
+
+.ob-tcard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card header: number + title */
+.ob-tcard-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ob-tcard-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0b0ced;
+  background: rgba(11, 12, 237, 0.06);
+  border: 1px solid rgba(11, 12, 237, 0.12);
+  border-radius: 5px;
+  padding: 3px 8px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.ob-tcard-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(11, 14, 22, 0.4);
+  line-height: 1.3;
+}
+
+/* Giant decorative quote mark */
+.ob-tcard-quote-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: rgba(11, 12, 237, 0.08);
+  margin-bottom: 12px;
+  font-weight: 900;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Quote body */
+.ob-tcard-body {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: #4b5563;
+  line-height: 1.85;
+  flex-grow: 1;
+  margin: 0 0 24px;
+}
+
+/* Divider rule */
+.ob-tcard-rule {
+  width: 40px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #0b0ced, transparent);
+  border-radius: 1px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* Author row */
+.ob-tcard-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ob-tcard-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ob-tcard-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Blue ring that appears on hover */
+.ob-tcard-avatar-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  z-index: 0;
+}
+
+.ob-tcard:hover .ob-tcard-avatar-ring {
+  border-color: #0b0ced;
+}
+
+.ob-tcard-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ob-tcard-name {
+  font-family: 'Fraunces', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0b0e16;
+  line-height: 1;
+}
+
+.ob-tcard-role {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(11, 14, 22, 0.38);
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .ob-testimonials-header { padding: 0 36px; }
+  .ob-testimonials-track { padding: 0 36px 56px; }
+}
+
+@media (max-width: 768px) {
+  #ob-testimonials { padding: 80px 0 80px; }
+  .ob-testimonials-header { padding: 0 24px; margin-bottom: 48px; }
+  .ob-testimonials-track { padding: 0 24px 52px; }
+  .ob-tcard { min-height: auto; padding: 28px 24px 24px; }
+  .ob-tcard-quote-mark { font-size: 3.5rem; }
+}
+
+@media (max-width: 480px) {
+  .ob-testimonials-header { text-align: center; }
+  .ob-testimonials-eyebrow { justify-content: center; }
+  .ob-testimonials-sub { max-width: 100%; }
+  .ob-tcard-item { padding: 0 6px; }
+}
