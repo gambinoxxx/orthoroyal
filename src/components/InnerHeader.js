@@ -54,8 +54,8 @@ const InnerHeader = () => {
           <Link to="/" className="logo" onClick={toTop}>
             <img
               src={logo}
-              alt="Symbiotic Info tech Pvt. Ltd"
-              title="Symbiotic Info tech Pvt. Ltd"
+              alt="orthoroyal.Ltd"
+              title="orthoroyal.Ltd"
             />
           </Link>
           <span  onClick={mobilemenu}>  
@@ -75,9 +75,6 @@ const InnerHeader = () => {
             <Link to ="/services"  className={splitLocation[1] === "services" ? "active" : ""}> Services</Link>
             </li>
             <li>
-            <Link to ="/careers"  className={splitLocation[1] === "careers" ? "active" : ""}> Careers</Link>
-            </li>
-            <li>
             <Link to ="/contact"  className={splitLocation[1] === "contact" ? "active" : ""}> Contact Us</Link>
             </li>
           </ul>
@@ -89,4 +86,3 @@ const InnerHeader = () => {
 };
 
 export default InnerHeader;
-

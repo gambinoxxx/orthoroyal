@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import AOS from "aos";
 import '../../node_modules/aos/dist/aos.css';
-import about_img from '../img/about-image.jpg';
-import manag_photo1 from '../img/team/Padmakumar.png';
+import about_img from '../img/company-logojpg.jpg';
+import manag_photo1 from '../img/team/muyiwa.jpg';
 import InnerHeaderBanner from '../components/InnerHeaderBanner';
 import InnerHeader from '../components/InnerHeader';
 import Footer from '../components/Footer';
@@ -41,7 +41,7 @@ const whyUs = [
 const team = [
   {
     photo: manag_photo1,
-    name: 'Ogun Muyiwa',
+    name: 'Wemimo Muyiwa',
     role: 'Co-Founder & Clinical Director',
     bio: 'A visionary prosthetist with over 15 years of experience across clinical practice and healthcare leadership. Muyiwa founded Orthoroyal to close the gap in quality prosthetic care across West Africa, bringing international standards to local communities.',
     twitter: 'https://twitter.com',
@@ -81,7 +81,7 @@ const About = () => {
                 </div>
                 <img src={about_img} alt="Orthoroyal — Our Story" className="ob-about-story-img" />
                 <div className="ob-about-story-badge">
-                  <span className="ob-about-story-badge-year">2019</span>
+                  <span className="ob-about-story-badge-year">2024</span>
                   <span className="ob-about-story-badge-label">Founded in Lagos</span>
                 </div>
               </div>
@@ -97,7 +97,7 @@ const About = () => {
                 Restoring <em>Lives.</em>
               </h2>
               <p className="ob-about-story-lead">
-                Orthoroyal was founded in 2019 with a single, clear purpose — to make
+                Orthoroyal was founded in 2024 with a single, clear purpose — to make
                 world-class prosthetic and orthotic care accessible to every African
                 who needs it.
               </p>
@@ -125,10 +125,10 @@ const About = () => {
                   <span className="ob-about-story-stat-label">Years Combined Experience</span>
                 </div>
                 <div className="ob-about-story-stat-divider"></div>
-                <div className="ob-about-story-stat">
+                {/* <div className="ob-about-story-stat">
                   <span className="ob-about-story-stat-num">8<em>+</em></span>
                   <span className="ob-about-story-stat-label">States Served</span>
-                </div>
+                </div> */}
               </div>
             </div>
 

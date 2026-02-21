@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Email = ({ mailto, label }) => {
     return (
         <Link
-            to='info@symbioticinfo.com'
+            to='info@orthoroyal.com'
             onClick={(e) => {
                 window.location.href = mailto;
                 e.preventDefault();

@@ -1009,14 +1009,14 @@ section {
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-.portfolio .portfolio-flters { padding: 0; margin: 0 auto 30px auto; list-style: none; text-align: center; }
-.portfolio .portfolio-flters li { color: var(--color-secondary); cursor: pointer; display: inline-block; padding: 0; font-size: 18px; font-weight: 400; margin: 0 10px; line-height: 1; margin-bottom: 5px; transition: all 0.3s ease-in-out; }
-.portfolio .portfolio-flters li:hover, .portfolio .portfolio-flters li.filter-active { color: var(--color-primary); }
-.portfolio .portfolio-flters li:first-child { margin-left: 0; }
-.portfolio .portfolio-flters li:last-child { margin-right: 0; }
+.portfolio .portfolio-filters { padding: 0; margin: 0 auto 30px auto; list-style: none; text-align: center; }
+.portfolio .portfolio-filters li { color: var(--color-secondary); cursor: pointer; display: inline-block; padding: 0; font-size: 18px; font-weight: 400; margin: 0 10px; line-height: 1; margin-bottom: 5px; transition: all 0.3s ease-in-out; }
+.portfolio .portfolio-filters li:hover, .portfolio .portfolio-filters li.filter-active { color: var(--color-primary); }
+.portfolio .portfolio-filters li:first-child { margin-left: 0; }
+.portfolio .portfolio-filters li:last-child { margin-right: 0; }
 
 @media (max-width: 575px) {
-  .portfolio .portfolio-flters li { font-size: 14px; margin: 0 5px; }
+  .portfolio .portfolio-filters li { font-size: 14px; margin: 0 5px; }
 }
 
 .portfolio .portfolio-item { position: relative; }
@@ -1240,7 +1240,7 @@ section {
 
 /* Ghost watermark */
 #ob-footer::before {
-  content: 'ORTHOBOX';
+  content: 'ORTHOROYAL';
   position: absolute;
   bottom: 60px;
   left: 50%;

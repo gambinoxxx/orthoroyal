@@ -112,8 +112,8 @@ const Contact = () => {
                   <div>
                     <h4>Email:</h4>
                     <p>
-                      <a href="mailto:info@symbioticinfo.com">
-                        info@symbioticinfo.com
+                      <a href="mailto:info@orthoroyal.com">
+                        info@orthoroyal.com
                       </a>
                     </p>
                   </div>

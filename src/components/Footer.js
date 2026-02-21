@@ -34,13 +34,13 @@ const Footer = () => {
             </p>
 
             <div className="ob-footer-socials">
-              <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/share/r/16onM3MSJz/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noreferrer">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="https://www.linkedin.com/company/symbiotic-infotech-pvt-ltd/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
-                <i className="bi bi-linkedin"></i>
+              <a href="https://www.tiktok.com/@orthoroyal17" aria-label="TikTok" target="_blank" rel="noreferrer">
+                <i className="bi bi-tiktok"></i>
               </a>
-              <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/reel/DMkZUijpLNa/?igsh=MWV1eGE5dGJjNjl5bA==" aria-label="Instagram" target="_blank" rel="noreferrer">
                 <i className="bi bi-instagram"></i>
               </a>
             </div>
@@ -54,7 +54,6 @@ const Footer = () => {
                 { to: "/",         label: "Home" },
                 { to: "/about",    label: "About Us" },
                 { to: "/services", label: "Services" },
-                { to: "/careers",  label: "Careers" },
                 { to: "/contact",  label: "Contact Us" },
               ].map(({ to, label }, i) => (
                 <li key={to}>
@@ -172,4 +171,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

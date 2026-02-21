@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
     el.addEventListener('click', function(event) {
       event.preventDefault();
-      mobileNavToogle();
+      mobileNavToggle();
     })
   });
 
-  function mobileNavToogle() {
+  function mobileNavToggle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavShow.classList.toggle('d-none');
     mobileNavHide.classList.toggle('d-none');
@@ -75,10 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('load', togglescrollTop);
     document.addEventListener('scroll', togglescrollTop);
-    scrollTop.addEventListener('click', window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    }));
+    scrollTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 
   /**
@@ -176,15 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   /**
-   * Porfolio isotope and filter
+   * Portfolio isotope and filter
    */
-  let portfolionIsotope = document.querySelector('.portfolio-isotope');
+  let portfolioIsotopeElem = document.querySelector('.portfolio-isotope');
 
-  if (portfolionIsotope) {
+  if (portfolioIsotopeElem) {
 
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
+    let portfolioFilter = portfolioIsotopeElem.getAttribute('data-portfolio-filter') ? portfolioIsotopeElem.getAttribute('data-portfolio-filter') : '*';
+    let portfolioLayout = portfolioIsotopeElem.getAttribute('data-portfolio-layout') ? portfolioIsotopeElem.getAttribute('data-portfolio-layout') : 'masonry';
+    let portfolioSort = portfolioIsotopeElem.getAttribute('data-portfolio-sort') ? portfolioIsotopeElem.getAttribute('data-portfolio-sort') : 'original-order';
 
     window.addEventListener('load', () => {
       let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
@@ -194,10 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sortBy: portfolioSort
       });
 
-      let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
+      let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-filters li');
       menuFilters.forEach(function(el) {
         el.addEventListener('click', function() {
-          document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
+          document.querySelector('.portfolio-isotope .portfolio-filters .filter-active').classList.remove('filter-active');
           this.classList.add('filter-active');
           portfolioIsotope.arrange({
             filter: this.getAttribute('data-filter')

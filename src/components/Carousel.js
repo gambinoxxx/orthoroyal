@@ -6,9 +6,9 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import heroImg1 from "../img/header/hero-image-1.jpg";
+import heroImg1 from "../img/header/hero-image-3.jpg";
 import heroImg2 from "../img/header/hero-image-2.jpg";
-import heroImg3 from "../img/header/hero-image-3.jpg";
+import heroImg3 from "../img/header/hero-image-1.jpg";
 import heroImg4 from "../img/header/hero-image-4.jpg";
 
 const slides = [
@@ -525,7 +525,7 @@ const CarouselC = () => {
               </div>
               <span className="c-brand">Orthobox</span>
             </div>
-            <span className="c-year">Est. 2009</span>
+            <span className="c-year">Est. 2024</span>
           </div>
 
           <div className="c-main">
@@ -562,7 +562,7 @@ const CarouselC = () => {
               <div className="c-stat-lbl">Years Experience</div>
             </div>
             <div className="c-stat">
-              <div className="c-stat-val">2k+</div>
+              <div className="c-stat-val">300+</div>
               <div className="c-stat-lbl">Lives Changed</div>
             </div>
             <div className="c-stat">
