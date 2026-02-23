@@ -525,7 +525,7 @@ const CarouselC = () => {
               </div>
               <span className="c-brand">Orthobox</span>
             </div>
-            <span className="c-year">Est. 2009</span>
+            <span className="c-year">Est. 2024</span>
           </div>
 
           <div className="c-main">
@@ -562,7 +562,7 @@ const CarouselC = () => {
               <div className="c-stat-lbl">Years Experience</div>
             </div>
             <div className="c-stat">
-              <div className="c-stat-val">2k+</div>
+              <div className="c-stat-val">300+</div>
               <div className="c-stat-lbl">Lives Changed</div>
             </div>
             <div className="c-stat">
@@ -624,3 +624,4 @@ const CarouselC = () => {
 };
 
 export default CarouselC;
+
