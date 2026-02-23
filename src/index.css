@@ -24,7 +24,7 @@
 
 /* Colors */
 :root {
-  --color-default: #2b180d;
+  --color-default: #1a1f2e;
   --color-primary: #155bd5;
   --color-secondary: #1b2f45;
   --primary: #155bd5;
@@ -51,7 +51,7 @@
   --black: #1d1d1d;
   --dark-1: #2d2d2d;
   --dark-2: #4d4d4d;
-  --dark-3: #6d6d6d;
+  --dark-3: #1a1f2e;
   --gray-1: #8d8d8d;
   --gray-2: #adadad;
   --gray-3: #cdcdcd;
@@ -110,8 +110,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  color: var(--dark-3);
-  font-size: 0.9375rem;
+  color: #1a1f2e;
+  font-size: 1rem;
   line-height: 1.85;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -166,7 +166,7 @@ section {
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--dark-2);
+  color: #1a1f2e;
 }
 
 .light-bg { background: #f5f5f5; }
@@ -790,8 +790,8 @@ section {
 
 .about .content p {
   margin: 24px 0;
-  color: #29486a;
-  font-size: 0.9375rem;
+  color: #1a1f2e;
+  font-size: 1rem;
   line-height: 1.9;
 }
 
@@ -823,8 +823,8 @@ section {
 .services-list .service-item .title { font-weight: 700; margin: 8px 0; font-size: 24px; }
 .services-list .service-item .title a { color: var(--color-black); }
 .services-list .service-item .title a:hover { color: var(--color-primary); }
-.services-list .service-item .description { line-height: 1.85; font-size: 0.9375rem; }
-.section-header p { font-size: 1rem; line-height: 1.8; margin-bottom: 25px; }
+.services-list .service-item .description { line-height: 1.85; font-size: 1rem; color: #1a1f2e; }
+.section-header p { font-size: 1rem; line-height: 1.8; margin-bottom: 25px; color: #1a1f2e; }
 
 .services-list .single-service {
   position: relative;
@@ -875,7 +875,7 @@ section {
 }
 
 .services-list .single-service h3 { color: var(--black); font-weight: 600; }
-.services-list .single-service p { color: var(--dark-3) !important; margin-top: 8px; font-size: 0.9rem; line-height: 1.8; }
+.services-list .single-service p { color: var(--dark-3) !important; margin-top: 8px; font-size: 0.9375rem; line-height: 1.8; color: #1a1f2e !important; }
 .services-list .single-service .light-rounded-buttons { margin-top: 25px; }
 
 /*--------------------------------------------------------------
@@ -943,7 +943,7 @@ section {
 
 .features .details { margin-top: 0px; padding: 0px 0px 100px 0px; }
 .features .details h2 { font-weight: 600; margin-bottom: 20px; }
-.features .details p { margin-bottom: 20px; font-size: 0.9375rem; line-height: 1.85; }
+.features .details p { margin-bottom: 20px; font-size: 1rem; line-height: 1.85; color: #1a1f2e; }
 
 .features .details .btn-get-started {
   font-family: var(--primary);
@@ -1022,7 +1022,7 @@ section {
 .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.08); }
 .testimonial-card .stars { color: #ffc107; margin-bottom: 15px; }
 .testimonial-card h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-.testimonial-card p { color: var(--dark-3); line-height: 1.85; flex-grow: 1; font-size: 0.9375rem; }
+.testimonial-card p { color: #1a1f2e; line-height: 1.85; flex-grow: 1; font-size: 1rem; }
 .testimonial-card .author { display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem; }
 .testimonial-card .author img { border-radius: 50%; }
 .testimonial-card .author h3 { font-weight: 600; font-size: 1rem; margin: 0; }
@@ -1133,7 +1133,7 @@ section {
 .management .member h4 { font-weight: 700; margin-bottom: 5px; font-size: 20px; color: #2c4964; }
 .management .member span { display: block; font-size: 15px; padding-bottom: 10px; position: relative; font-weight: 500; }
 .management .member span::after { content: ""; position: absolute; display: block; width: 50px; height: 1px; background: var(--color-primary); bottom: 0; left: 0; }
-.management .member p { margin: 10px 0 0 0; font-size: 0.875rem; line-height: 1.8; color: var(--dark-3); }
+.management .member p { margin: 10px 0 0 0; font-size: 0.9375rem; line-height: 1.8; color: #1a1f2e; }
 .management .member .social { margin-top: 12px; display: flex; align-items: center; justify-content: flex-start; }
 .management .member .social a { transition: ease-in-out 0.3s; display: flex; align-items: center; justify-content: center; border-radius: 50px; width: 32px; height: 32px; background: var(--color-primary); }
 .management .member .social a i { color: #fff; font-size: 16px; margin: 0 2px; }
@@ -1216,7 +1216,7 @@ section {
 .footer .footer-content .footer-info .logo { line-height: 0; margin-bottom: 10px; }
 .footer .footer-content .footer-info .logo img { max-width: 140px; margin-right: 6px; }
 .footer .footer-content .footer-info .logo span { font-size: 30px; font-weight: 700; letter-spacing: 1px; color: var(--color-secondary); font-family: var(--font-secondary); margin-top: 3px; }
-.footer .footer-content .footer-info p { font-size: 0.875rem; line-height: 1.75; margin-bottom: 0; font-family: var(--font-primary); color: var(--color-secondary); }
+.footer .footer-content .footer-info p { font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0; font-family: var(--font-primary); color: #1a1f2e; }
 
 .footer .footer-content .social-links a {
   font-size: 14px;
@@ -1242,7 +1242,7 @@ section {
 .footer .footer-content .footer-links ul li:first-child { padding-top: 0; }
 .footer .footer-content .footer-links ul a { color: var(--dark-3); transition: 0.3s; display: inline-block; line-height: 1; }
 .footer .footer-content .footer-links ul a:hover { color: var(--color-primary); }
-.footer .footer-content .footer-contact p { line-height: 1.8; color: var(--dark-3); font-size: 0.875rem; }
+.footer .footer-content .footer-contact p { line-height: 1.8; color: #1a1f2e; font-size: 0.9375rem; }
 .footer .footer-legal { background: var(--light-2); padding: 30px 0; }
 .footer .footer-legal .copyright { text-align: center; color: var(--dark-3); }
 .footer .footer-legal .credits { padding-top: 4px; text-align: center; font-size: 13px; color: var(--dark-3); }
@@ -1256,7 +1256,7 @@ section {
 /* ── SHELL ── */
 #ob-footer {
   font-family: 'Manrope', sans-serif;
-  background: #f0f4ff;
+  background: #155bd5e6;
   position: relative;
   overflow: hidden;
 }
@@ -1273,7 +1273,7 @@ section {
   font-weight: 900;
   font-style: italic;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(11, 12, 237, 0.06);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
@@ -1304,7 +1304,7 @@ section {
   position: relative;
   z-index: 1;
   padding: 80px 0 56px;
-  border-bottom: 1px solid rgba(11, 12, 237, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .ob-footer-grid {
@@ -1346,15 +1346,15 @@ section {
 .ob-footer-logo-img {
   height: 32px;
   width: auto;
-  filter: none;
-  opacity: 1;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
 .ob-footer-tagline {
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0b0e16;
+  color: #fff;
   line-height: 1.2;
   margin-bottom: 16px;
 }
@@ -1367,7 +1367,7 @@ section {
 .ob-footer-desc {
   font-size: 0.82rem;
   font-weight: 300;
-  color: #6b7280;
+  color: rgba(255,255,255,0.85);
   line-height: 1.85;
   max-width: 280px;
   margin-bottom: 28px;
@@ -1383,12 +1383,12 @@ section {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  border: 1px solid rgba(11, 12, 237, 0.12);
-  background: rgba(11, 12, 237, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(11, 14, 22, 0.45);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.85rem;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -1408,7 +1408,7 @@ section {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(11, 14, 22, 0.3);
+  color: rgba(255, 255, 255, 0.55);
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -1419,7 +1419,7 @@ section {
   content: '';
   flex: 1;
   height: 1px;
-  background: rgba(11, 12, 237, 0.08);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* ── Link lists ── */
@@ -1439,7 +1439,7 @@ section {
   padding: 7px 0;
   font-size: 0.82rem;
   font-weight: 400;
-  color: rgba(11, 14, 22, 0.45);
+  color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
   transition: color 0.22s ease, gap 0.22s ease;
 }
@@ -1455,7 +1455,7 @@ section {
 }
 
 .ob-footer-links li a:hover {
-  color: #0b0ced;
+  color: #fff;
   gap: 12px;
 }
 
@@ -1475,8 +1475,8 @@ section {
   width: 34px;
   height: 34px;
   border-radius: 8px;
-  background: rgba(11, 12, 237, 0.1);
-  border: 1px solid rgba(11, 12, 237, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1484,31 +1484,31 @@ section {
   margin-top: 1px;
 }
 
-.ob-footer-contact-icon svg { color: #0b0ced; }
+.ob-footer-contact-icon svg { color: #fff; }
 
 .ob-footer-contact-label {
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(11, 14, 22, 0.35);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 3px;
 }
 
 .ob-footer-contact-val {
   font-size: 0.82rem;
-  color: #4b5563;
+  color: rgba(255,255,255,0.85);
   line-height: 1.55;
   font-weight: 300;
 }
 
 .ob-footer-contact-val a {
-  color: #4b5563;
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.ob-footer-contact-val a:hover { color: #0b0ced; }
+.ob-footer-contact-val a:hover { color: #fff; }
 
 /* ── Get in Touch CTA ── */
 .ob-footer-cta {
@@ -1517,7 +1517,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  background: rgba(11, 12, 237, 0.08);
+  background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(11, 12, 237, 0.2);
   border-radius: 10px;
   text-decoration: none;
@@ -1535,14 +1535,14 @@ section {
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #0b0ced;
+  color: #fff;
 }
 
 .ob-footer-cta-arrow {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(11, 12, 237, 0.08);
+  background: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1550,7 +1550,7 @@ section {
 }
 
 .ob-footer-cta:hover .ob-footer-cta-arrow { background: rgba(255, 255, 255, 0.15); }
-.ob-footer-cta-arrow svg { color: #0b0ced; }
+.ob-footer-cta-arrow svg { color: #fff; }
 
 /* ── Bottom bar ── */
 .ob-footer-bottom {
@@ -1569,12 +1569,12 @@ section {
 .ob-footer-copy {
   font-size: 0.72rem;
   font-weight: 300;
-  color: rgba(11, 14, 22, 0.35);
+  color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.04em;
 }
 
 .ob-footer-copy span {
-  color: rgba(11, 14, 22, 0.6);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
 }
 
@@ -1588,13 +1588,13 @@ section {
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: rgba(11, 14, 22, 0.3);
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s;
 }
 
-.ob-footer-bottom-links a:hover { color: #0b0ced; }
+.ob-footer-bottom-links a:hover { color: #fff; }
 
 /* Bottom bar policy buttons — styled to match the link aesthetic */
 .ob-footer-bottom-btn {
@@ -1606,18 +1606,18 @@ section {
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: rgba(11, 14, 22, 0.3);
+  color: rgba(255, 255, 255, 0.55);
   text-transform: uppercase;
   transition: color 0.2s;
 }
 
-.ob-footer-bottom-btn:hover { color: #0b0ced; }
+.ob-footer-bottom-btn:hover { color: #fff; }
 
 .ob-footer-bottom-sep {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(11, 14, 22, 0.12);
+  background: rgba(255, 255, 255, 0.25);
   display: inline-block;
   vertical-align: middle;
 }
@@ -1628,7 +1628,7 @@ section {
   align-items: center;
   gap: 6px;
   font-size: 0.7rem;
-  color: rgba(11, 14, 22, 0.3);
+  color: rgba(255, 255, 255, 0.45);
   font-weight: 300;
 }
 
@@ -1770,7 +1770,7 @@ section {
 .ob-revenue-body {
   font-size: 0.92rem;
   font-weight: 300;
-  color: #5a6175;
+  color: #1a1f2e;
   line-height: 1.85;
   margin-bottom: 16px;
   max-width: 480px;
@@ -2005,6 +2005,7 @@ section {
   .ob-revenue-body {
     max-width: 100%;
     text-align: center;
+    color: #1a1f2e;
   }
 
   .ob-revenue-body--accent {
@@ -2132,9 +2133,9 @@ section {
 }
 
 .ob-testimonials-sub {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 300;
-  color: #6b7280;
+  color: #1a1f2e;
   line-height: 1.75;
   max-width: 480px;
   margin: 0;
@@ -2294,9 +2295,9 @@ section {
 
 /* Quote body */
 .ob-tcard-body {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   font-weight: 300;
-  color: #4b5563;
+  color: #1a1f2e;
   line-height: 1.85;
   flex-grow: 1;
   margin: 0 0 24px;
@@ -2538,7 +2539,7 @@ section {
 }
 
 .ob-faq-btn--active {
-  background: rgba(11, 14, 22, 0.12);
+  background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.25);
 }
 
@@ -2796,9 +2797,9 @@ section {
 }
 
 .ob-services-sub {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 300;
-  color: #6b7280;
+  color: #1a1f2e;
   line-height: 1.8;
   margin: 0;
   max-width: 420px;
@@ -3831,7 +3832,7 @@ section {
 .ob-svcpage-eyebrow-sep {
   height: 1px;
   width: 32px;
-  background: rgba(11, 14, 22, 0.12);
+  background: rgba(255, 255, 255, 0.25);
   flex-shrink: 0;
 }
 
@@ -3905,9 +3906,9 @@ section {
 }
 
 .ob-svcpage-body p {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   font-weight: 300;
-  color: #4b5563;
+  color: #1a1f2e;
   line-height: 1.9;
   margin: 0;
 }
@@ -4221,7 +4222,7 @@ section {
 .ob-contact-aside-sub {
   font-size: 0.78rem;
   font-weight: 300;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
   line-height: 1.75;
   margin: 0 0 36px;
 }
@@ -4739,9 +4740,9 @@ section {
 }
 
 .ob-about-story-body {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   font-weight: 300;
-  color: #4b5563;
+  color: #1a1f2e;
   line-height: 1.9;
   margin-bottom: 16px;
 }
@@ -4967,9 +4968,9 @@ section {
 .ob-about-why-heading em { font-style: italic; color: #0b0ced; }
 
 .ob-about-why-sub {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   font-weight: 300;
-  color: #4b5563;
+  color: #1a1f2e;
   line-height: 1.85;
   margin-bottom: 36px;
   max-width: 400px;
@@ -5106,9 +5107,9 @@ section {
 .ob-about-team-heading em { font-style: italic; color: #0b0ced; }
 
 .ob-about-team-sub {
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
   font-weight: 300;
-  color: #6b7280;
+  color: #1a1f2e;
   line-height: 1.8;
   margin: 0;
 }
