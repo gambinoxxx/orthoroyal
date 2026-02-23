@@ -6,9 +6,9 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
-import heroImg1 from "../img/header/hero-image-3.jpg";
+import heroImg1 from "../img/header/hero-image-1.jpg";
 import heroImg2 from "../img/header/hero-image-2.jpg";
-import heroImg3 from "../img/header/hero-image-1.jpg";
+import heroImg3 from "../img/header/hero-image-3.jpg";
 import heroImg4 from "../img/header/hero-image-4.jpg";
 
 const slides = [
@@ -51,7 +51,7 @@ const CarouselC = () => {
         #hero-c {
           font-family: 'Manrope', sans-serif;
           min-height: 100vh;
-          background: #181c24;
+          background: #f0f4ff;
           display: grid;
           grid-template-columns: 1fr 1fr;
           position: relative;
@@ -66,8 +66,8 @@ const CarouselC = () => {
           flex-direction: column;
           justify-content: space-between;
           padding: 60px 56px 56px 72px;
-          background: #181c24;
-          border-right: 1px solid rgba(255,255,255,0.06);
+          background: #f0f4ff;
+          border-right: 1px solid rgba(11,12,237,0.08);
         }
 
         /* Subtle noise texture via repeating-gradient */
@@ -117,14 +117,14 @@ const CarouselC = () => {
           font-weight: 600;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
+          color: rgba(11,14,22,0.45);
         }
 
         .c-year {
           font-size: 0.72rem;
           font-weight: 300;
           letter-spacing: 0.08em;
-          color: rgba(255,255,255,0.25);
+          color: rgba(11,14,22,0.3);
         }
 
         /* MAIN CONTENT */
@@ -159,7 +159,7 @@ const CarouselC = () => {
           font-weight: 500;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.4);
+          color: #0b0ced;
         }
 
         .c-title {
@@ -167,7 +167,7 @@ const CarouselC = () => {
           font-size: clamp(3.5rem, 5vw, 6.5rem);
           font-weight: 900;
           line-height: 0.92;
-          color: #fff;
+          color: #0b0e16;
           margin: 0 0 36px;
           animation: cFade 0.8s ease 0.25s both;
         }
@@ -189,7 +189,7 @@ const CarouselC = () => {
           font-weight: 900;
           font-style: italic;
           color: transparent;
-          -webkit-text-stroke: 1px rgba(11,12,237,0.15);
+          -webkit-text-stroke: 1px rgba(11,12,237,0.12);
           transform: translate(4px, 4px);
           pointer-events: none;
           user-select: none;
@@ -199,7 +199,7 @@ const CarouselC = () => {
         .c-desc {
           font-size: 0.9rem;
           font-weight: 300;
-          color: rgba(255,255,255,0.45);
+          color: #4b5563;
           line-height: 1.95;
           max-width: 380px;
           margin-bottom: 40px;
@@ -251,7 +251,7 @@ const CarouselC = () => {
           z-index: 1;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          border-top: 1px solid rgba(255,255,255,0.07);
+          border-top: 1px solid rgba(11,14,22,0.08);
           padding-top: 28px;
           animation: cFade 0.8s ease 0.7s both;
         }
@@ -261,7 +261,7 @@ const CarouselC = () => {
         }
 
         .c-stat:not(:last-child) {
-          border-right: 1px solid rgba(255,255,255,0.07);
+          border-right: 1px solid rgba(11,14,22,0.08);
           margin-right: 20px;
         }
 
@@ -269,7 +269,7 @@ const CarouselC = () => {
           font-family: 'Fraunces', serif;
           font-size: 2rem;
           font-weight: 700;
-          color: #fff;
+          color: #0b0e16;
           line-height: 1;
           margin-bottom: 4px;
         }
@@ -278,7 +278,7 @@ const CarouselC = () => {
           font-size: 0.65rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.3);
+          color: rgba(11,14,22,0.38);
           font-weight: 400;
         }
 
@@ -317,7 +317,7 @@ const CarouselC = () => {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(to right, rgba(24,28,36,0.5) 0%, transparent 40%);
+          background: linear-gradient(to right, rgba(240,244,255,0.3) 0%, transparent 40%);
           z-index: 1;
         }
 
@@ -329,7 +329,7 @@ const CarouselC = () => {
           left: 0;
           right: 0;
           height: 40%;
-          background: linear-gradient(to top, rgba(24,28,36,0.8), transparent);
+          background: linear-gradient(to top, rgba(10,14,30,0.75), transparent);
           z-index: 1;
         }
 
@@ -409,9 +409,9 @@ const CarouselC = () => {
           top: 28px;
           right: 28px;
           z-index: 10;
-          background: rgba(24,28,36,0.85);
+          background: rgba(240,244,255,0.92);
           backdrop-filter: blur(8px);
-          border: 1px solid rgba(11,12,237,0.3);
+          border: 1px solid rgba(11,12,237,0.2);
           border-radius: 12px;
           padding: 12px 16px;
           text-align: center;
@@ -430,7 +430,7 @@ const CarouselC = () => {
           font-size: 0.6rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.4);
+          color: rgba(11,14,22,0.45);
         }
 
         /* Dots on right panel edge */
@@ -471,7 +471,7 @@ const CarouselC = () => {
           .c-left {
             padding: 48px 32px 40px;
             border-right: none;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(11,12,237,0.08);
             align-items: center;
             text-align: center;
           }
@@ -525,7 +525,7 @@ const CarouselC = () => {
               </div>
               <span className="c-brand">Orthobox</span>
             </div>
-            <span className="c-year">Est. 2024</span>
+            <span className="c-year">Est. 2009</span>
           </div>
 
           <div className="c-main">
@@ -562,7 +562,7 @@ const CarouselC = () => {
               <div className="c-stat-lbl">Years Experience</div>
             </div>
             <div className="c-stat">
-              <div className="c-stat-val">300+</div>
+              <div className="c-stat-val">2k+</div>
               <div className="c-stat-lbl">Lives Changed</div>
             </div>
             <div className="c-stat">
