@@ -4183,7 +4183,7 @@ section {
 
 /* Left accent strip inside card */
 .ob-contact-card-aside {
-  background: linear-gradient(180deg, #0b0ced 0%, #0a13a8 100%);
+  background: #155bd5e6;
   padding: 52px 36px;
   display: flex;
   flex-direction: column;
@@ -4462,7 +4462,7 @@ section {
   gap: 10px;
   width: 100%;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #0b0ced 0%, #1a2be0 100%);
+  background: #155bd5e6;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -4474,7 +4474,7 @@ section {
   cursor: pointer;
   margin-top: 10px;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 24px rgba(11,12,237,0.35);
+  box-shadow: 0 6px 24px rgba(21,91,213,0.35);
   position: relative;
   overflow: hidden;
 }
@@ -4483,7 +4483,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), #155bd5e6);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -4492,7 +4492,7 @@ section {
 
 .ob-contact-submit:hover:not(:disabled) {
   gap: 16px;
-  box-shadow: 0 10px 36px rgba(11,12,237,0.5);
+  box-shadow: 0 10px 36px rgba(21,91,213,0.5);
   transform: translateY(-1px);
 }
 
