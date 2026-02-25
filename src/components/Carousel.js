@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import heroImg1 from "../img/header/hero-image-1.jpg";
 import heroImg2 from "../img/header/2.png";
 import heroImg3 from "../img/header/hero-image-3.jpg";
-import heroImg4 from "../img/header/3.png";//u
+import heroImg4 from "../img/header/3.png";
 
 const slides = [
   { img: heroImg1, label: "Advanced Prosthetics" },
@@ -26,11 +26,11 @@ const CarouselC = () => {
   const goTo = useCallback((dir, index = null) => {
     if (animating) return;
     setAnimating(true);
+    if (index !== null) setCurrent(index);
+    else setCurrent((prev) => dir === "next" ? (prev + 1) % slides.length : (prev - 1 + slides.length) % slides.length);
     setTimeout(() => {
-      if (index !== null) setCurrent(index);
-      else setCurrent((prev) => dir === "next" ? (prev + 1) % slides.length : (prev - 1 + slides.length) % slides.length);
       setAnimating(false);
-    }, 600);
+    }, 800);
   }, [animating]);
 
   const stopAuto = useCallback(() => { if (intervalRef.current) clearInterval(intervalRef.current); }, []);
@@ -80,51 +80,9 @@ const CarouselC = () => {
           z-index: 0;
         }
 
-        .c-header-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          position: relative;
-          z-index: 1;
-          animation: cFade 0.6s ease both;
-        }
-
         @keyframes cFade {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
-        }
-
-        .c-logo-area {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .c-logo-mark {
-          width: 32px;
-          height: 32px;
-          background: #0b0ced;
-          border-radius: 6px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .c-logo-mark svg { color: #fff; }
-
-        .c-brand {
-          font-size: 0.72rem;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: rgba(11,14,22,0.45);
-        }
-
-        .c-year {
-          font-size: 0.72rem;
-          font-weight: 300;
-          letter-spacing: 0.08em;
-          color: rgba(11,14,22,0.3);
         }
 
         /* MAIN CONTENT */
@@ -492,7 +450,6 @@ const CarouselC = () => {
             margin-top: 20px;
           }
           .c-dots { right: 12px; }
-          .c-header-row { display: none; }
         }
 
         @media (max-width: 576px) {
@@ -516,18 +473,6 @@ const CarouselC = () => {
       <section id="hero-c">
         {/* LEFT */}
         <div className="c-left">
-          <div className="c-header-row">
-            <div className="c-logo-area">
-              <div className="c-logo-mark">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              </div>
-              <span className="c-brand">Orthobox</span>
-            </div>
-            <span className="c-year">Est. 2024</span>
-          </div>
-
           <div className="c-main">
             <div className="c-eyebrow">
               <span className="c-eyebrow-dot" />
@@ -536,7 +481,7 @@ const CarouselC = () => {
 
             <h1 className="c-title">
               Beyond<br />
-              <span className="c-title-blue" style={{ position: 'relative' }}>
+              <span className="c-title-blue">
                 <span className="c-ghost" aria-hidden="true">Limits</span>
                 Limits
               </span>
@@ -585,13 +530,7 @@ const CarouselC = () => {
               </div>
             </div>
           ))}
-
-          {/* ISO badge */}
-          <div className="c-iso">
-            <div className="c-iso-val">ISO</div>
-            <div className="c-iso-lbl">Certified<br />Medical</div>
-          </div>
-
+          
           {/* Dots */}
           <div className="c-dots">
             {slides.map((_, i) => (
@@ -624,4 +563,3 @@ const CarouselC = () => {
 };
 
 export default CarouselC;
-

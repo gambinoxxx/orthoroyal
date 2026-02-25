@@ -89,7 +89,7 @@ const ClientList = () => {
       {/* Count strip */}
       <div className="ob-clients-count" data-aos="fade-up" data-aos-delay="100">
         <div className="ob-clients-count-item">
-          <span className="ob-clients-count-num">19<em>+</em></span>
+          <span className="ob-clients-count-num">4<em>+</em></span>
           <span className="ob-clients-count-label">Partner Organisations</span>
         </div>
         <div className="ob-clients-count-divider"></div>
