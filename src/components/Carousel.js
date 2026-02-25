@@ -7,9 +7,9 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import heroImg1 from "../img/header/hero-image-1.jpg";
-import heroImg2 from "../img/header/hero-image-2.jpg";
+import heroImg2 from "../img/header/2.png";
 import heroImg3 from "../img/header/hero-image-3.jpg";
-import heroImg4 from "../img/header/hero-image-4.jpg";
+import heroImg4 from "../img/header/3.png";//u
 
 const slides = [
   { img: heroImg1, label: "Advanced Prosthetics" },

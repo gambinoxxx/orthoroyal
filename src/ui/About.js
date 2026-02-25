@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import AOS from "aos";
 import '../../node_modules/aos/dist/aos.css';
 import about_img from '../img/company-logojpg.jpg';
-import manag_photo1 from '../img/team/muyiwa.jpg';
+import manag_photo1 from '../img/team/1.png';
 import InnerHeaderBanner from '../components/InnerHeaderBanner';
 import InnerHeader from '../components/InnerHeader';
 import Footer from '../components/Footer';
 import abtHeader from '../img/about-header.jpg';
-
 const values = [
   {
     id: '01',
